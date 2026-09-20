@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MOVIE+ | Xem Phim Không Giới Hạn - Bom Tấn Việt & Quốc Tế 4K HDR</title>
+    <meta name="description"
+        content="Xem phim bom tấn chiếu rạp, điện ảnh Việt Nam và quốc tế bản quyền sắc nét 4K HDR trên MOVIE+. Dùng thử miễn phí 7 ngày trên mọi thiết bị.">
+    <meta name="theme-color" content="#050507">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://image.tmdb.org">
+    
+    <!-- External CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="nav" id="nav">
+        <div class="container nav-in">
+            <a class="logo" href="#top" aria-label="MOVIE+ trang chủ">MOVIE<span>+</span></a>
+            <nav class="nav-links" id="navLinks" aria-label="Điều hướng chính">
+                <a href="#trending">Thịnh hành</a>
+                <a href="#features">Tính năng</a>
+                <a href="#devices">Thiết bị</a>
+                <a href="#library">Thư viện</a>
+                <a href="#plans">Gói cước</a>
+                <a href="#reviews">Đánh giá</a>
+                <a href="#faq">Hỏi đáp</a>
+            </nav>
+            <div class="nav-r">
+                <button class="ic-btn" data-act="search" aria-label="Tìm kiếm phim" data-ico="search"></button>
+                <div id="navAuth"></div>
+                <button class="ic-btn burger" data-act="menu" aria-label="Mở menu điều hướng" data-ico="menu"></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- ================= HERO SECTION ================= -->
+        <section class="hero" aria-label="Giới thiệu MOVIE+">
+            <div class="hero-bg" id="heroBg"></div>
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="hero-badge-tag">
+                        <span data-ico="fire" data-size="16"></span>
+                        Nền Tảng Streaming Phim Bản Quyền Hàng Đầu Việt Nam
+                    </div>
+                    <h1>Mọi câu chuyện.<br>Một điểm chạm.</h1>
+                    <p class="lead">Hàng ngàn giờ phim bom tấn chiếu rạp, điện ảnh Việt độc quyền và các tác phẩm đoạt giải Oscar. Trải nghiệm chất lượng 4K HDR & âm thanh vòm Dolby Atmos.</p>
+                    <form class="cta-form" id="heroForm">
+                        <input type="email" id="heroEmail" placeholder="Nhập địa chỉ email của bạn..." required
+                            aria-label="Email của bạn" autocomplete="email">
+                        <button class="btn btn-primary btn-lg" type="submit">Trải nghiệm 7 ngày miễn phí</button>
+                    </form>
+                    <small class="fine">
+                        <span data-ico="shield" data-size="16"></span>
+                        Chỉ từ 49.000đ/tháng sau dùng thử. Hủy bất cứ lúc nào không mất phí.
+                    </small>
+                </div>
+            </div>
+            <div class="hero-foot">
+                <div class="container">
+                    <div class="hero-now" id="heroNow"></div>
+                    <div class="dots" id="heroDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= STATS & AWARDS COUNTER BAR ================= -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-num">5.000.000+</div>
+                        <div class="stat-lbl">Khách hàng tin dùng</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">10.000+</div>
+                        <div class="stat-lbl">Phim & Series chất lượng cao</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">4K HDR</div>
+                        <div class="stat-lbl">Hình ảnh & Dolby Atmos chuẩn rạp</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">100%</div>
+                        <div class="stat-lbl">Không chứa quảng cáo làm phiền</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DẢI POSTER MARQUEE ================= -->
+        <div class="strip" id="strip" aria-hidden="true"></div>
+
+        <!-- ================= THỊNH HÀNH (TOP 10) ================= -->
+        <section class="sec" id="trending">
+            <div class="container">
+                <div class="sec-h">
+                    <div>
+                        <h2>Top 10 Phim Thịnh Hành</h2>
+                        <p class="sec-p">Các tác phẩm được xem nhiều nhất tuần này trên MOVIE+ Việt Nam.</p>
+                    </div>
+                    <div class="arrows">
+                        <button class="ic-btn" data-act="row" data-d="-1" aria-label="Cuộn sang trái"
+                            data-ico="chevL"></button>
+                        <button class="ic-btn" data-act="row" data-d="1" aria-label="Cuộn sang phải"
+                            data-ico="chevR"></button>
+                    </div>
+                </div>
+                <div class="t10-track" id="t10"></div>
+            </div>
+        </section>
+
+        <!-- ================= TÍNH NĂNG NỔI BẬT ================= -->
+        <section class="sec" id="features">
+            <div class="container feat">
+                <div class="feat-l">
+                    <h2>Trải nghiệm rạp chiếu chuẩn mực ngay tại nhà</h2>
+                    <p class="sec-p">Công nghệ truyền tải tiên tiến mang chất lượng điện ảnh đến từng khung hình.</p>
+                </div>
+                <ul class="feat-list">
+                    <li>
+                        <span class="fi" data-ico="monitor"></span>
+                        <div>
+                            <h3>Hình ảnh 4K Ultra HD & Dolby Atmos</h3>
+                            <p>Tận hưởng độ nét gấp 4 lần Full HD với màu sắc sống động và âm thanh vòm chân thực đến từng chi tiết.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="fi" data-ico="phone"></span>
+                        <div>
+                            <h3>Đồng bộ trên mọi màn hình</h3>
+                            <p>Xem mượt mà trên Smart TV, laptop, smartphone hay tablet. Đang xem dở ở nhà, tiếp tục trên chuyến xe mà không gián đoạn.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="fi" data-ico="download"></span>
+                        <div>
+                            <h3>Tải về xem Offline</h3>
+                            <p>Lưu sẵn danh sách phim yêu thích vào thiết bị di động để thưởng thức khi đi du lịch hoặc không có Wi-Fi.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="fi" data-ico="shield"></span>
+                        <div>
+                            <h3>Hồ sơ cá nhân & Chế độ Trẻ em</h3>
+                            <p>Tối đa 5 hồ sơ riêng biệt cho gia đình. Khóa mã PIN bảo vệ trẻ nhỏ với thư viện hoạt hình giáo dục an toàn.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="fi" data-ico="ban"></span>
+                        <div>
+                            <h3>Tuyệt đối không quảng cáo</h3>
+                            <p>Tập trung hoàn toàn vào diễn biến câu chuyện mà không bị gián đoạn bởi các quảng cáo rác.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="fi" data-ico="cc"></span>
+                        <div>
+                            <h3>Phụ đề chuẩn & Thuyết minh chuyên nghiệp</h3>
+                            <p>100% phim có phụ đề tiếng Việt chuẩn điện ảnh cùng tùy chọn lồng tiếng Việt cao cấp cho phim hoạt hình.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= DEVICE SHOWCASE ================= -->
+        <section class="sec device-sec" id="devices">
+            <div class="container">
+                <div class="device-grid">
+                    <div>
+                        <h2>Xem mọi lúc, mọi nơi trên thiết bị bạn yêu thích</h2>
+                        <p class="sec-p" style="margin-bottom: 28px;">Ứng dụng MOVIE+ tương thích hoàn hảo với hầu hết các nền tảng phổ biến hiện nay.</p>
+                        <div class="device-features">
+                            <div class="df-item">
+                                <div class="df-icon" data-ico="monitor"></div>
+                                <div>
+                                    <b style="font-size:18px;">TV Thông Minh</b>
+                                    <p class="muted" style="font-size:14px;">Samsung Tizen, LG webOS, Sony Android TV, Apple TV, Chromecast.</p>
+                                </div>
+                            </div>
+                            <div class="df-item">
+                                <div class="df-icon" data-ico="phone"></div>
+                                <div>
+                                    <b style="font-size:18px;">Điện Thoại & Máy Tính Bảng</b>
+                                    <p class="muted" style="font-size:14px;">iOS (iPhone, iPad), Android (Samsung, Xiaomi, OPPO, Vivo).</p>
+                                </div>
+                            </div>
+                            <div class="df-item">
+                                <div class="df-icon" data-ico="expand"></div>
+                                <div>
+                                    <b style="font-size:18px;">Máy Tính & Web</b>
+                                    <p class="muted" style="font-size:14px;">Trình duyệt Chrome, Safari, Edge, Firefox trên Windows & macOS.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="device-card">
+                        <div class="device-mockup">
+                            <img src="https://image.tmdb.org/t/p/w1280/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg" alt="Phim trên Smart TV" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= THƯ VIỆN PHIM ================= -->
+        <section class="sec" id="library">
+            <div class="container">
+                <div class="sec-h">
+                    <div>
+                        <h2>Kho Phim Chọn Lọc</h2>
+                        <p class="sec-p">Chạm hoặc click trực tiếp vào card phim để xem thông tin chi tiết, trailer và dàn diễn viên.</p>
+                    </div>
+                </div>
+                <div id="mylist"></div>
+                <div class="chips" id="chips" role="tablist" aria-label="Lọc theo thể loại"></div>
+                <div class="grid" id="libGrid"></div>
+            </div>
+        </section>
+
+        <!-- ================= GÓI CƯỚC / THANH TOÁN ================= -->
+        <section class="sec" id="plans">
+            <div class="container">
+                <div class="plans-top">
+                    <div>
+                        <h2>Gói Cước Linh Hoạt Cho Mọi Nhu Cầu</h2>
+                        <p class="sec-p">Miễn phí 7 ngày trải nghiệm. Không cam kết dài hạn, hủy bất cứ lúc nào.</p>
+                    </div>
+                    <div class="seg" id="cycleSeg" role="group" aria-label="Chu kỳ thanh toán"></div>
+                </div>
+                <div class="plans" id="plansGrid"></div>
+                <p class="plans-note">* Giá đã bao gồm thuế VAT. Số thiết bị là số màn hình xem đồng thời trên một tài khoản.</p>
+            </div>
+        </section>
+
+        <!-- ================= ĐÁNH GIÁ TỪ KHÁCH HÀNG ================= -->
+        <section class="sec reviews-sec" id="reviews">
+            <div class="container">
+                <div class="sec-h">
+                    <div>
+                        <h2>Khách Hàng Nói Gì Về MOVIE+</h2>
+                        <p class="sec-p">Hơn 5 triệu người xem tại Việt Nam đã chọn MOVIE+ làm nền tảng giải trí hàng ngày.</p>
+                    </div>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Chất lượng phim 4K HDR tuyệt vời, âm thanh Dolby Atmos nghe trên dàn loa nhà mình sướng như ngoài rạp. Phim Việt lên rất nhanh!"</p>
+                        <div class="review-user">
+                            <div class="avatar" style="background:#0068ff;">H</div>
+                            <div class="review-user-info">
+                                <b>Hoàng Nam</b>
+                                <span>Gói Cao Cấp • TP. Hồ Chí Minh</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Giao diện cực mượt, không bao giờ bị giật lag dù xem vào giờ cao điểm. Thích nhất là tính năng tải phim về xem lúc đi máy bay."</p>
+                        <div class="review-user">
+                            <div class="avatar" style="background:#a50064;">M</div>
+                            <div class="review-user-info">
+                                <b>Minh Anh</b>
+                                <span>Gói Tiêu Chuẩn • Hà Nội</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Nhà mình có 2 con nhỏ, chế độ Trẻ em rất an toàn và nhiều hoạt hình lồng tiếng Việt xuất sắc. Đáng tiền đến từng xu!"</p>
+                        <div class="review-user">
+                            <div class="avatar" style="background:#46d369; color:#000;">T</div>
+                            <div class="review-user-info">
+                                <b>Thanh Thảo</b>
+                                <span>Gói Cao Cấp • Đà Nẵng</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HỎI ĐÁP FAQ ================= -->
+        <section class="sec" id="faq">
+            <div class="container">
+                <div class="sec-h" style="justify-content:center; text-align:center;">
+                    <div>
+                        <h2>Câu Hỏi Thường Gặp</h2>
+                        <p class="sec-p" style="margin-inline:auto;">Giải đáp các thắc mắc phổ biến về dịch vụ MOVIE+.</p>
+                    </div>
+                </div>
+                <div class="faq">
+                    <details open>
+                        <summary>Dùng thử miễn phí 7 ngày hoạt động như thế nào?</summary>
+                        <p>Bạn đăng ký tài khoản và được trải nghiệm toàn bộ kho phim không giới hạn trong 7 ngày. Bạn sẽ không bị trừ tiền cho tới khi hết 7 ngày. Nếu không muốn tiếp tục, bạn có thể hủy bất cứ lúc nào trong mục Tài khoản.</p>
+                    </details>
+                    <details>
+                        <summary>Tôi có thể hủy gói bất cứ lúc nào không?</summary>
+                        <p>Có. Bạn hủy trực tiếp trên website hoặc ứng dụng mà không cần qua thủ tục phức tạp. Sau khi hủy, bạn vẫn được xem tiếp đến hết chu kỳ đã thanh toán.</p>
+                    </details>
+                    <details>
+                        <summary>Tôi có thể xem MOVIE+ trên những thiết bị nào?</summary>
+                        <p>Smart TV (Samsung, LG, Sony, Android TV), Điện thoại di động, Máy tính bảng (iOS, Android), Laptop và Máy tính bàn qua trình duyệt web.</p>
+                    </details>
+                    <details>
+                        <summary>Hỗ trợ những phương thức thanh toán nào?</summary>
+                        <p>Thẻ tín dụng / ghi nợ (Visa, Mastercard, JCB), Ví điện tử MoMo, ZaloPay, VNPay-QR và Chuyển khoản ngân hàng trực tuyến.</p>
+                    </details>
+                    <details>
+                        <summary>Tôi có thể đổi gói cước đang sử dụng không?</summary>
+                        <p>Có. Bạn có thể nâng cấp hoặc hạ gói cước bất kỳ lúc nào trong cài đặt Tài khoản. Quyền lợi gói mới sẽ được áp dụng ngay lập tức.</p>
+                    </details>
+                    <details>
+                        <summary>Chất lượng phim 4K HDR có yêu cầu mạng mạnh không?</summary>
+                        <p>Hệ thống tự động điều chỉnh độ phân giải phù hợp với tốc độ mạng của bạn. Để xem mượt 4K HDR, khuyến nghị tốc độ internet từ 25 Mbps trở lên.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= APP DOWNLOAD BANNER ================= -->
+        <section class="container">
+            <div class="app-banner">
+                <div>
+                    <h2>Tải Ứng Dụng MOVIE+ Ngay</h2>
+                    <p class="muted" style="font-size:18px;">Thưởng thức hàng ngàn bộ phim bom tấn đỉnh cao ngay trên thiết bị di động và Smart TV của bạn.</p>
+                    <div class="app-stores">
+                        <a href="#" class="app-store-btn" onclick="event.preventDefault(); toast('Ứng dụng đã sẵn sàng trên App Store');">
+                            <span data-ico="phone" data-size="24"></span>
+                            <div>
+                                <small style="display:block;font-size:10px;color:var(--tx3);">TẢI VỀ TRÊN</small>
+                                <b>App Store</b>
+                            </div>
+                        </a>
+                        <a href="#" class="app-store-btn" onclick="event.preventDefault(); toast('Ứng dụng đã sẵn sàng trên Google Play');">
+                            <span data-ico="monitor" data-size="24"></span>
+                            <div>
+                                <small style="display:block;font-size:10px;color:var(--tx3);">TẢI VỀ TRÊN</small>
+                                <b>Google Play</b>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="background:#fff; padding:16px; border-radius:16px; display:inline-block; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+                        <!-- SVG QR Placeholder -->
+                        <svg width="140" height="140" viewBox="0 0 100 100" fill="#000">
+                            <rect x="0" y="0" width="30" height="30" />
+                            <rect x="5" y="5" width="20" height="20" fill="#fff" />
+                            <rect x="10" y="10" width="10" height="10" />
+                            <rect x="70" y="0" width="30" height="30" />
+                            <rect x="75" y="5" width="20" height="20" fill="#fff" />
+                            <rect x="80" y="10" width="10" height="10" />
+                            <rect x="0" y="70" width="30" height="30" />
+                            <rect x="5" y="75" width="20" height="20" fill="#fff" />
+                            <rect x="10" y="80" width="10" height="10" />
+                            <rect x="40" y="40" width="20" height="20" />
+                            <rect x="60" y="70" width="15" height="15" />
+                            <rect x="80" y="80" width="20" height="20" />
+                        </svg>
+                    </div>
+                    <p style="font-size:13px; margin-top:10px; color:var(--tx2);">Quét mã QR để tải app nhanh</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FINAL CTA BANNER ================= -->
+        <section class="final">
+            <div class="container">
+                <h2>Sẵn Sàng Cho Buổi Chiếu Phim Tối Nay?</h2>
+                <p>Nhập email để bắt đầu 7 ngày dùng thử miễn phí ngay lập tức.</p>
+                <form class="cta-form" id="finalForm">
+                    <input type="email" id="finalEmail" placeholder="Nhập địa chỉ email của bạn..." required
+                        aria-label="Email của bạn" autocomplete="email">
+                    <button class="btn btn-primary btn-lg" type="submit">Bắt Đầu Xem Phim</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <div class="container">
+            <div class="f-grid">
+                <div>
+                    <a class="logo" href="#top">MOVIE<span>+</span></a>
+                    <p style="margin-top:12px; line-height:1.6;">Nền tảng xem phim trực tuyến hàng đầu dành cho người Việt. Sứ mệnh mang trải nghiệm điện ảnh chân thực tới mọi gia đình.</p>
+                </div>
+                <div>
+                    <h4>Khám Phá</h4>
+                    <ul>
+                        <li><a href="#trending">Phim Thịnh Hành</a></li>
+                        <li><a href="#library">Thư Viện Phim</a></li>
+                        <li><a href="#plans">Gói Cước Phù Hợp</a></li>
+                        <li><a href="#devices">Thiết Bị Hỗ Trợ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hỗ Trợ</h4>
+                    <ul>
+                        <li><a href="#faq">Câu Hỏi Thường Gặp</a></li>
+                        <li><a href="#" onclick="event.preventDefault(); toast('Trung tâm trợ giúp 24/7');">Trung Tâm Trợ Giúp</a></li>
+                        <li><a href="#" onclick="event.preventDefault(); toast('Hotline: 1900 8888 (24/7)');">Hotline 1900 8888</a></li>
+                        <li><a href="#" onclick="event.preventDefault(); toast('Email hỗ trợ: hotro@movieplus.vn');">Liên Hệ Email</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pháp Lý & Điều Khoản</h4>
+                    <ul>
+                        <li><a href="#">Điều Khoản Sử Dụng</a></li>
+                        <li><a href="#">Chính Sách Quyền Riêng Tư</a></li>
+                        <li><a href="#">Bản Quyền Nội Dung</a></li>
+                        <li><a href="#">Cài Đặt Cookie</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="f-legal">
+                <span>Bản quyền © 2026 MOVIE+ Việt Nam. Mọi quyền được bảo lưu.</span>
+                <span>Dữ liệu và hình ảnh phim được đồng bộ trực tiếp từ TMDB API. Sản phẩm demo hỗ trợ đầy đủ các gói cước và mô phỏng thanh toán trực tuyến.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL: CHI TIẾT PHIM ================= -->
+    <div class="overlay" id="m-detail" role="dialog" aria-modal="true" aria-label="Chi tiết phim">
+        <div class="modal">
+            <button class="m-close" data-close aria-label="Đóng" data-ico="x"></button>
+            <div id="dm"></div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: QUẢN LÝ & CHUYỂN ĐỔI HỒ SƠ CÁ NHÂN ================= -->
+    <div class="overlay" id="m-profiles" role="dialog" aria-modal="true" aria-label="Chuyển đổi hồ sơ cá nhân">
+        <div class="modal wide">
+            <button class="m-close" data-close aria-label="Đóng" data-ico="x"></button>
+            <div class="profiles-wrap">
+                <h2 class="profiles-title">Ai Đang Xem MOVIE+?</h2>
+                <p class="profiles-subtitle">Chọn hồ sơ của bạn để cá nhân hóa danh sách phim, danh sách xem tiếp & quản lý chi tiết.</p>
+                <div class="profiles-grid" id="profilesGrid"></div>
+                <div style="display:flex; justify-content:center; gap:16px; margin-top:20px;">
+                    <button class="btn btn-ghost" data-act="add-profile">+ Thêm Hồ Sơ Mới</button>
+                    <button class="btn btn-ghost" data-act="view-active-profile-detail">ℹ️ Xem Chi Tiết Hồ Sơ Hiện Tại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: CHI TIẾT HỒ SƠ CÁ NHÂN ================= -->
+    <div class="overlay" id="m-profile-detail" role="dialog" aria-modal="true" aria-label="Chi tiết hồ sơ cá nhân">
+        <div class="modal wide">
+            <button class="m-close" data-close aria-label="Đóng" data-ico="x"></button>
+            <div id="profileDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: ĐĂNG NHẬP ================= -->
+    <div class="overlay" id="m-login" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+        <div class="modal narrow">
+            <button class="m-close" data-close aria-label="Đóng" data-ico="x"></button>
+            <h3 class="mt" id="loginTitle">Đăng Nhập</h3>
+            <p class="muted" style="margin-bottom:24px">Chào mừng bạn quay lại MOVIE+.</p>
+            <form id="loginForm">
+                <div class="field">
+                    <label for="lgEmail">Địa chỉ Email</label>
+                    <input id="lgEmail" type="email" required autocomplete="email" placeholder="ten@email.com">
+                </div>
+                <div class="field">
+                    <label for="lgPass">Mật khẩu</label>
+                    <input id="lgPass" type="password" required autocomplete="current-password" placeholder="Nhập mật khẩu của bạn">
+                </div>
+                <button class="btn btn-primary btn-block" type="submit">Đăng Nhập</button>
+                <p class="fine" style="margin-top:16px; text-align:center;">Bản demo: Nhập bất kỳ email & mật khẩu nào để trải nghiệm.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= MODAL: THANH TOÁN GÓI CƯỚC ================= -->
+    <div class="overlay" id="m-checkout" role="dialog" aria-modal="true" aria-labelledby="coTitle">
+        <div class="modal wide">
+            <button class="m-close" data-close aria-label="Đóng" data-ico="x"></button>
+            <div class="co">
+                <div class="co-main">
+                    <div class="stepper" id="coStepper"></div>
+                    <div id="coPane"></div>
+                </div>
+                <aside class="co-sum" id="coSum" aria-label="Tóm tắt đơn hàng"></aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= OVERLAY: TÌM KIẾM TOÀN MÀN HÌNH ================= -->
+    <div class="overlay top" id="m-search" role="dialog" aria-modal="true" aria-label="Tìm kiếm phim">
+        <div class="search-wrap">
+            <div class="sb">
+                <span data-ico="search" data-size="32"></span>
+                <input id="sq" type="search" placeholder="Nhập tên phim, đạo diễn hoặc thể loại..." autocomplete="off" aria-label="Tìm kiếm">
+                <button class="ic-btn" data-close aria-label="Đóng tìm kiếm" data-ico="x" data-size="28"></button>
+            </div>
+            <h3 id="sqH">Gợi ý tìm kiếm phổ biến</h3>
+            <div class="grid" id="sqRes"></div>
+        </div>
+    </div>
+
+    <!-- ================= OVERLAY: TRÌNH PHÁT VIDEO ================= -->
+    <div class="overlay player" id="m-player" role="dialog" aria-modal="true" aria-label="Trình phát video">
+        <div class="p-bg" id="pBg"></div>
+        <div class="p-shade"></div>
+        <button class="p-center" data-act="ptoggle" aria-label="Phát hoặc tạm dừng">
+            <span class="p-big" id="pBig"></span>
+        </button>
+        <div class="p-ui p-top">
+            <button class="ic-btn" data-close aria-label="Quay lại" data-ico="chevL" data-size="28"></button>
+            <div>
+                <b id="pTitle"></b>
+                <small id="pSub"></small>
+            </div>
+            <span class="q-badge" id="pQ">4K HDR</span>
+        </div>
+        <div class="p-ui p-bot">
+            <div class="p-bar" id="pBar" role="slider" aria-label="Tiến trình phim" tabindex="0">
+                <div class="p-fill" id="pFill"></div>
+                <div class="p-knob" id="pKnob"></div>
+            </div>
+            <div class="p-row">
+                <div class="p-l">
+                    <button class="ic-btn" id="pPlay" data-act="ptoggle" aria-label="Phát hoặc tạm dừng"></button>
+                    <button class="ic-btn" data-act="pseek" data-d="-10" aria-label="Lùi 10 giây" data-ico="back10" data-size="26"></button>
+                    <button class="ic-btn" data-act="pseek" data-d="10" aria-label="Tua 10 giây" data-ico="fwd10" data-size="26"></button>
+                    <span id="pTime">0:00 / 0:00</span>
+                </div>
+                <div class="p-r">
+                    <span class="demo-note">Đang xem trình phát mô phỏng MOVIE+ Ultra HD</span>
+                    <button class="ic-btn" data-act="pfs" aria-label="Toàn màn hình" data-ico="expand" data-size="22"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- ================= JAVASCRIPT APP LOGIC ================= -->
+    <script>
+        (function () {
+            'use strict';
+
+            const TMDB_KEY = '';
+            const IMG = 'https://image.tmdb.org/t/p/';
+
+            /* ================= HELPER FUNCTIONS ================= */
+            const $ = (s, r = document) => r.querySelector(s);
+            const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+            const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            const fmt = n => n.toLocaleString('vi-VN') + 'đ';
+            const dur = d => Math.floor(d / 60) + 'g ' + String(d % 60).padStart(2, '0') + 'p';
+            const fdate = iso => new Date(iso).toLocaleDateString('vi-VN');
+            const norm = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'd').toLowerCase();
+            const store = {
+                get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d } catch (e) { return d } },
+                set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)) } catch (e) { } }
+            };
+
+            /* ================= INLINE SVG ICONS ================= */
+            const IC = {
+                play: '<polygon points="7 4 20 12 7 20 7 4" fill="currentColor" stroke="none"/>',
+                pause: '<rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/><rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor" stroke="none"/>',
+                plus: '<path d="M12 5v14M5 12h14"/>',
+                check: '<path d="M20 6 9 17l-5-5"/>',
+                search: '<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
+                x: '<path d="M18 6 6 18M6 6l12 12"/>',
+                chevL: '<path d="m15 18-6-6 6-6"/>',
+                chevR: '<path d="m9 18 6-6-6-6"/>',
+                monitor: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
+                phone: '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>',
+                download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+                shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+                ban: '<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
+                cc: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h4M15 15h2M7 11h2M13 11h4"/>',
+                back10: '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><text x="12" y="15.5" font-size="7" font-weight="700" fill="currentColor" stroke="none" text-anchor="middle">10</text>',
+                fwd10: '<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/><text x="12" y="15.5" font-size="7" font-weight="700" fill="currentColor" stroke="none" text-anchor="middle">10</text>',
+                expand: '<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>',
+                info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+                user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+                menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+                lock: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+                trailer: '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/>',
+                fire: '<path d="M12 2c0 3-2 5-4 7s-3 4-3 6a7 7 0 0 0 14 0c0-4-3-7-7-13z"/>'
+            };
+            const ico = (n, s = 20) => '<svg viewBox="0 0 24 24" width="' + s + '" height="' + s + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (IC[n] || '') + '</svg>';
+
+            /* ================= MOVIE DATASET WITH 100% REAL POSTERS & BACKDROPS ================= */
+            const CATS = [
+                { id: 'all', n: 'Tất cả' }, { id: 'viet', n: 'Phim Việt' }, { id: 'hot', n: 'Bom tấn' }, { id: 'cls', n: 'Kinh điển' },
+                { id: 'thr', n: 'Kinh dị & Giật gân' }, { id: 'drm', n: 'Tình cảm & Chính kịch' }, { id: 'ani', n: 'Hoạt hình' }
+            ];
+
+            const M = [
+                { id: 1, t: 'Bố Già', y: 2021, d: 128, g: ['Gia đình', 'Hài', 'Tâm lý'], c: 'viet', r: 'T13', dr: 'Trấn Thành, Vũ Ngọc Đãng', s: 'Chuyện một gia đình lao động nghèo trong con hẻm Sài Gòn: những va chạm giữa hai thế hệ, những hy sinh thầm lặng và tình cha con được kể bằng cả tiếng cười lẫn nước mắt.', p: 'img/bo_gia.png', b: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1280&q=80' },
+                { id: 2, t: 'Mắt Biếc', y: 2019, d: 117, g: ['Tình cảm', 'Chính kịch'], c: 'viet', r: 'T16', dr: 'Victor Vũ', s: 'Chuyển thể từ tiểu thuyết của Nguyễn Nhật Ánh, phim kể về mối tình đơn phương kéo dài nhiều năm của Ngạn dành cho Hà Lan, cô bạn có đôi mắt đẹp như biếc.', p: 'img/mat_biec.png', b: 'https://images.unsplash.com/photo-1518676599602-f17053b4c0d3?auto=format&fit=crop&w=1280&q=80' },
+                { id: 3, t: 'Tiệc Trăng Máu', y: 2020, d: 118, g: ['Tâm lý', 'Hài đen'], c: 'viet', r: 'T18', dr: 'Nguyễn Quang Dũng', s: 'Nhóm bạn thân gặp nhau trong một bữa tiệc đêm nguyệt thực và cùng chơi trò để điện thoại giữa bàn. Những bí mật dần lộ ra.', p: 'img/tiec_trang_mau.png', b: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1280&q=80' },
+                { id: 4, t: 'Mai', y: 2024, d: 131, g: ['Tâm lý', 'Tình cảm'], c: 'viet', r: 'T18', dr: 'Trấn Thành', s: 'Mai là người phụ nữ ngoài ba mươi làm nghề mát-xa, quen sống khép mình trước định kiến. Cuộc gặp với một chàng trai trẻ mở ra cơ hội để cô yêu thương lần nữa.', p: 'img/mai.png', b: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1280&q=80' },
+                { id: 5, t: 'Hai Phượng', y: 2019, d: 98, g: ['Hành động'], c: 'viet', r: 'T18', dr: 'Lê Văn Kiệt', s: 'Người mẹ đơn thân từng có quá khứ giang hồ lao vào cuộc chiến sinh tử để giải cứu đứa con gái bị bắt cóc.', p: 'img/hai_phuong.png', b: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1280&q=80' },
+                { id: 6, t: 'Lật Mặt 6: Tấm Vé Định Mệnh', y: 2023, d: 132, g: ['Hành động', 'Hài'], c: 'viet', r: 'T16', dr: 'Lý Hải', s: 'Tấm vé số định mệnh kéo một nhóm bạn thân vào chuỗi biến cố bất ngờ, nơi tình bạn và lòng tham bị đặt lên bàn cân.', p: 'img/lat_mat_6.png', b: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1280&q=80' },
+                { id: 7, t: 'Nhà Bà Nữ', y: 2023, d: 102, g: ['Gia đình', 'Hài'], c: 'viet', r: 'T13', dr: 'Trấn Thành', s: 'Câu chuyện gia đình nhiều thế hệ dưới một mái nhà ở Sài Gòn, nơi hiểu lầm, chuyện tiền bạc và tình thương đan xen.', p: 'img/nha_ba_nu.png', b: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1280&q=80' },
+
+                { id: 8, t: 'Avengers: Endgame', y: 2019, d: 181, g: ['Hành động', 'Viễn tưởng'], c: 'hot', r: 'T13', dr: 'Anthony Russo, Joe Russo', s: 'Sau cú búng tay của Thanos, những Avengers còn lại tập hợp một lần nữa để tìm cách đảo ngược thảm họa và khôi phục vũ trụ.', p: '/or06FN3Dka5tukK1e9sl16pB3iy.jpg', b: '/7RyHsO4yDXtBv1zUU3M1UXB0iKM.jpg' },
+                { id: 9, t: 'Oppenheimer', y: 2023, d: 180, g: ['Tiểu sử', 'Chính kịch'], c: 'hot', r: 'T18', dr: 'Christopher Nolan', s: 'Chân dung J. Robert Oppenheimer, nhà vật lý đứng đầu Dự án Manhattan chế tạo bom nguyên tử, và những hệ lụy đạo đức ám ảnh ông về sau.', p: '/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg', b: '/fm6K8Ofi85i2yR2r2fS64R9W.jpg' },
+                { id: 10, t: 'Dune: Part Two', y: 2024, d: 166, g: ['Viễn tưởng', 'Phiêu lưu'], c: 'hot', r: 'T13', dr: 'Denis Villeneuve', s: 'Paul Atreides liên minh với người Fremen trên hành tinh sa mạc Arrakis, vừa báo thù những kẻ hủy diệt gia tộc mình vừa đối mặt với định mệnh của cả vũ trụ.', p: '/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg', b: '/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg' },
+                { id: 11, t: 'Top Gun: Maverick', y: 2022, d: 130, g: ['Hành động', 'Chính kịch'], c: 'hot', r: 'T13', dr: 'Joseph Kosinski', s: 'Hơn ba mươi năm sau, phi công Pete "Maverick" Mitchell trở lại huấn luyện thế hệ phi công mới cho một nhiệm vụ gần như bất khả thi.', p: '/62HCnUTziyWcpDaBO2i1DX17ljH.jpg', b: '/AaV1YIdWKnjA2oY35leD5Su82hC.jpg' },
+                { id: 12, t: 'Mad Max: Fury Road', y: 2015, d: 120, g: ['Hành động', 'Viễn tưởng'], c: 'hot', r: 'T18', dr: 'George Miller', s: 'Trong sa mạc hậu tận thế, Max bất đắc dĩ hợp sức với nữ chiến binh Furiosa trong cuộc rượt đuổi sinh tử chống lại bạo chúa Immortan Joe.', p: '/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg', b: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1280&q=80' },
+                { id: 13, t: 'John Wick: Chapter 4', y: 2023, d: 169, g: ['Hành động', 'Tội phạm'], c: 'hot', r: 'T18', dr: 'Chad Stahelski', s: 'John Wick tìm cách đánh bại Cao Hội Đồng trong hành trình đưa anh từ New York tới Osaka, Berlin và Paris để giành lại tự do.', p: '/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg', b: '/7I6VUdPj6VAVmwjCfiLEP02eT0W.jpg' },
+                { id: 14, t: 'Spider-Man: No Way Home', y: 2021, d: 148, g: ['Hành động', 'Viễn tưởng'], c: 'hot', r: 'T13', dr: 'Jon Watts', s: 'Danh tính Người Nhện bị lộ. Peter Parker nhờ Doctor Strange giúp đỡ và vô tình mở toang những cánh cổng đa vũ trụ.', p: '/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg', b: '/iQF12Stm1eyftvL2BNo2iBWhWH.jpg' },
+                { id: 15, t: 'Everything Everywhere All at Once', y: 2022, d: 139, g: ['Viễn tưởng', 'Hài', 'Chính kịch'], c: 'hot', r: 'T16', dr: 'Daniel Kwan, Daniel Scheinert', s: 'Một bà chủ tiệm giặt là gốc Hoa bị cuốn vào cuộc phiêu lưu xuyên đa vũ trụ, nơi bà phải cứu thế giới và hàn gắn quan hệ với gia đình.', p: '/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg', b: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1280&q=80' },
+
+                { id: 16, t: 'Inception', y: 2010, d: 148, g: ['Viễn tưởng', 'Hành động'], c: 'cls', r: 'T13', dr: 'Christopher Nolan', s: 'Dom Cobb là tên trộm chuyên đánh cắp bí mật từ giấc mơ. Anh nhận nhiệm vụ đảo ngược: cấy một ý tưởng vào tiềm thức của mục tiêu.', p: '/ljsZTbVsrQSqZgWeep2B1QiDKuh.jpg', b: '/8ZTVqvKDQ8emSGUEMjsS4yHAiKQ.jpg' },
+                { id: 17, t: 'Interstellar', y: 2014, d: 169, g: ['Viễn tưởng', 'Phiêu lưu'], c: 'cls', r: 'T13', dr: 'Christopher Nolan', s: 'Khi Trái Đất dần cạn kiệt sự sống, một nhóm nhà thám hiểm băng qua hố sâu không gian để tìm ngôi nhà mới cho nhân loại.', p: '/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg', b: '/xJHokMbljvjADYdit5fK5VQsXEG.jpg' },
+                { id: 18, t: 'The Dark Knight', y: 2008, d: 152, g: ['Hành động', 'Tội phạm'], c: 'cls', r: 'T16', dr: 'Christopher Nolan', s: 'Batman cùng Jim Gordon và Harvey Dent đối đầu với Joker, tên tội phạm hỗn loạn muốn nhấn chìm thành phố Gotham.', p: '/qJ2tW6WMUDux911r6m7haRef0WH.jpg', b: '/nMKdUUepR0i5zn0y1T4CsSB5chy.jpg' },
+                { id: 19, t: 'The Matrix', y: 1999, d: 136, g: ['Viễn tưởng', 'Hành động'], c: 'cls', r: 'T16', dr: 'Lilly Wachowski, Lana Wachowski', s: 'Lập trình viên Neo phát hiện thế giới mình đang sống chỉ là một mô phỏng và gia nhập cuộc chiến chống lại những cỗ máy.', p: '/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg', b: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1280&q=80' },
+                { id: 20, t: 'The Shawshank Redemption', y: 1994, d: 142, g: ['Chính kịch'], c: 'cls', r: 'T16', dr: 'Frank Darabont', s: 'Andy Dufresne, một nhân viên ngân hàng bị kết án oan, xây dựng tình bạn và giữ niềm hy vọng suốt nhiều năm trong nhà tù Shawshank.', p: '/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg', b: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1280&q=80' },
+
+                { id: 21, t: 'Parasite', y: 2019, d: 132, g: ['Giật gân', 'Chính kịch'], c: 'thr', r: 'T18', dr: 'Bong Joon-ho', s: 'Gia đình Ki-taek nghèo khó tìm cách len vào cuộc sống của một gia đình giàu có, kéo theo chuỗi hệ quả ngoài dự tính.', p: '/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg', b: '/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg' },
+                { id: 22, t: 'Joker', y: 2019, d: 122, g: ['Tội phạm', 'Tâm lý'], c: 'thr', r: 'T18', dr: 'Todd Phillips', s: 'Arthur Fleck, một diễn viên hài thất bại ở Gotham, dần trượt vào bạo lực và trở thành biểu tượng của sự hỗn loạn.', p: '/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg', b: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1280&q=80' },
+                { id: 23, t: 'Get Out', y: 2017, d: 104, g: ['Kinh dị', 'Giật gân'], c: 'thr', r: 'T16', dr: 'Jordan Peele', s: 'Chris lần đầu về thăm gia đình bạn gái và dần nhận ra có điều rất đáng sợ đằng sau sự đón tiếp nồng hậu.', p: '/tFXcEccSQMf3lfhfXKSU9iRBpa3.jpg', b: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1280&q=80' },
+                { id: 24, t: 'The Conjuring', y: 2013, d: 112, g: ['Kinh dị'], c: 'thr', r: 'T18', dr: 'James Wan', s: 'Hai nhà điều tra hiện tượng siêu nhiên Ed và Lorraine Warren giúp một gia đình bị thế lực đen tối quấy nhiễu trong ngôi nhà ở nông thôn.', p: '/wVYREutTvI2tmxr6ujrHT704wGF.jpg', b: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1280&q=80' },
+
+                { id: 26, t: 'Forrest Gump', y: 1994, d: 142, g: ['Chính kịch', 'Tình cảm'], c: 'drm', r: 'T13', dr: 'Robert Zemeckis', s: 'Cuộc đời phi thường của Forrest Gump, chàng trai chân thành với trái tim nhân hậu, chứng kiến và góp mặt trong nhiều biến cố lớn của nước Mỹ.', p: '/arw2vcBveWOVZr6pxd9XTd1TdQa.jpg', b: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1280&q=80' },
+                { id: 27, t: 'Titanic', y: 1997, d: 194, g: ['Tình cảm', 'Thảm họa'], c: 'drm', r: 'T13', dr: 'James Cameron', s: 'Mối tình giữa chàng họa sĩ nghèo Jack và tiểu thư Rose trên chuyến hải trình định mệnh của con tàu Titanic.', p: '/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg', b: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1280&q=80' },
+                { id: 28, t: 'La La Land', y: 2016, d: 128, g: ['Nhạc kịch', 'Tình cảm'], c: 'drm', r: 'T13', dr: 'Damien Chazelle', s: 'Nghệ sĩ dương cầm Sebastian và cô diễn viên nhiều hoài bão Mia gặp nhau ở Los Angeles, cùng theo đuổi giấc mơ và tình yêu.', p: '/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg', b: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1280&q=80' },
+
+                { id: 32, t: 'Spirited Away', y: 2001, d: 125, g: ['Hoạt hình', 'Phiêu lưu'], c: 'ani', r: 'P', dr: 'Hayao Miyazaki', s: 'Cô bé Chihiro lạc vào thế giới thần linh kỳ bí và phải làm việc trong nhà tắm công cộng để cứu cha mẹ đã bị biến thành lợn.', p: '/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg', b: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1280&q=80' },
+                { id: 33, t: 'Your Name', y: 2016, d: 106, g: ['Hoạt hình', 'Tình cảm'], c: 'ani', r: 'P', dr: 'Makoto Shinkai', s: 'Hai người xa lạ ở Tokyo và một thị trấn miền núi bỗng đổi thân xác cho nhau trong giấc ngủ, mở ra một sợi dây kết nối kỳ lạ.', p: '/q719jXXEzOoYaps6babgKnONONX.jpg', b: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1280&q=80' },
+                { id: 34, t: 'Coco', y: 2017, d: 105, g: ['Hoạt hình', 'Gia đình'], c: 'ani', r: 'P', dr: 'Lee Unkrich, Adrian Molina', s: 'Cậu bé Miguel mê âm nhạc bước vào Vùng đất của Người chết trong ngày lễ Día de los Muertos để khám phá bí mật gia đình.', p: '/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg', b: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1280&q=80' },
+                { id: 35, t: 'Inside Out 2', y: 2024, d: 96, g: ['Hoạt hình', 'Gia đình'], c: 'ani', r: 'P', dr: 'Kelsey Mann', s: 'Riley bước vào tuổi thiếu niên, và những cảm xúc mới như Lo Âu bất ngờ xuất hiện trong trung tâm điều khiển.', p: '/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg', b: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1280&q=80' },
+                { id: 37, t: 'Spider-Man: Across the Spider-Verse', y: 2023, d: 140, g: ['Hoạt hình', 'Hành động'], c: 'ani', r: 'T13', dr: 'Joaquim Dos Santos, Kemp Powers', s: 'Miles Morales bước vào đa vũ trụ, gặp một đội Spider-People và phải chọn giữa vai trò anh hùng và những người thân yêu.', p: '/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg', b: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1280&q=80' }
+            ];
+
+            const byId = id => M.find(m => m.id === id);
+            const HERO = [10, 17, 18, 21];
+            const TOP10 = [4, 10, 9, 8, 14, 21, 1, 35, 17, 13];
+
+            const PLANS = [
+                { id: 'mobile', name: 'Di Động', price: 49000, q: 'HD 720p', feat: ['Chất lượng HD 720p', '1 màn hình xem cùng lúc', 'Xem trên Điện thoại & Tablet', 'Tải xuống 1 thiết bị', 'Tuyệt đối không quảng cáo'] },
+                { id: 'standard', name: 'Tiêu Chuẩn', price: 99000, q: 'Full HD 1080p', tag: 'Phổ biến nhất', feat: ['Chất lượng Full HD 1080p', '2 màn hình xem cùng lúc', 'TV, Laptop, Phone & Tablet', 'Tải xuống trên 2 thiết bị', 'Tuyệt đối không quảng cáo'] },
+                { id: 'premium', name: 'Cao Cấp', price: 169000, q: '4K Ultra HD + HDR', tag: 'Trọn vẹn nhất', feat: ['Chất lượng 4K Ultra HD + HDR', 'Âm thanh vòm Dolby Atmos', '4 màn hình xem cùng lúc', 'Tải xuống trên 6 thiết bị', 'Tối đa 5 hồ sơ cá nhân riêng'] }
+            ];
+            const PLAN = id => PLANS.find(p => p.id === id);
+
+            const PAY = [
+                { id: 'card', n: 'Thẻ tín dụng / Ghi nợ', d: 'Visa, Mastercard, JCB', k: 'THẺ', c: '#3b3b46' },
+                { id: 'momo', n: 'Ví điện tử MoMo', d: 'Thanh toán tức thì qua MoMo', k: 'MoMo', c: '#a50064' },
+                { id: 'zalo', n: 'Ví ZaloPay', d: 'Thanh toán trực tiếp qua ZaloPay', k: 'Zalo', c: '#0068ff' },
+                { id: 'vnpay', n: 'Quét mã VNPay-QR', d: 'Mọi ứng dụng ngân hàng Việt Nam', k: 'VNPay', c: '#005baa' },
+                { id: 'bank', n: 'Chuyển khoản Ngân hàng', d: 'Xác nhận tự động trong 1 phút', k: 'Bank', c: '#2f7d4f' }
+            ];
+            const COUPONS = { MOVIE20: 20, WELCOME10: 10 };
+
+            /* ================= PROFILES & USER STATE MANAGEMENT ================= */
+            const DEFAULT_PROFILES = [
+                {
+                    id: 1,
+                    name: 'Anh Tuấn (Chính)',
+                    email: 'anhtuan.main@movieplus.vn',
+                    phone: '0988 123 456',
+                    avatarBg: 'linear-gradient(135deg, #E50914 0%, #800000 100%)',
+                    role: 'Tài khoản chính (Primary Owner)',
+                    isKids: false,
+                    plan: 'Gói Cao Cấp (4K Ultra HD)',
+                    maturity: 'Tất cả độ tuổi (18+)',
+                    favGenres: ['Hành động', 'Viễn tưởng', 'Chính kịch'],
+                    language: 'Tiếng Việt (Lồng tiếng & Phụ đề)',
+                    watchCount: 42,
+                    favCount: 15,
+                    watchHours: 186,
+                    createdDate: '15/01/2024',
+                    pinCode: 'Tắt'
+                },
+                {
+                    id: 2,
+                    name: 'Phương Thảo',
+                    email: 'phuongthao@movieplus.vn',
+                    phone: '0977 654 321',
+                    avatarBg: 'linear-gradient(135deg, #0068ff 0%, #002d73 100%)',
+                    role: 'Thành viên Gia đình (Family Member)',
+                    isKids: false,
+                    plan: 'Gói Cao Cấp (Dùng chung)',
+                    maturity: 'T16 (Từ 16 tuổi trở lên)',
+                    favGenres: ['Tình cảm', 'Hài đen', 'Tâm lý'],
+                    language: 'Tiếng Anh (Phụ đề Tiếng Việt)',
+                    watchCount: 29,
+                    favCount: 9,
+                    watchHours: 112,
+                    createdDate: '20/02/2024',
+                    pinCode: 'Tắt'
+                },
+                {
+                    id: 3,
+                    name: 'Trẻ Em (Kids)',
+                    email: 'kids.family@movieplus.vn',
+                    phone: 'Được giám sát bởi Anh Tuấn',
+                    avatarBg: 'linear-gradient(135deg, #46d369 0%, #176029 100%)',
+                    role: 'Hồ sơ Trẻ Em (Kids Safe Profile)',
+                    isKids: true,
+                    plan: 'Gói Cao Cấp (Dành cho Trẻ Em)',
+                    maturity: 'P (Tất cả độ tuổi Trẻ Em)',
+                    favGenres: ['Hoạt hình', 'Gia đình', 'Phiêu lưu'],
+                    language: 'Tiếng Việt (Lồng tiếng chuẩn)',
+                    watchCount: 64,
+                    favCount: 22,
+                    watchHours: 140,
+                    createdDate: '01/03/2024',
+                    pinCode: '1234 (Mã PIN Phụ huynh)'
+                },
+                {
+                    id: 4,
+                    name: 'Gia Đình',
+                    email: 'giadinh.shared@movieplus.vn',
+                    phone: '0988 123 456',
+                    avatarBg: 'linear-gradient(135deg, #F5C451 0%, #7a5c10 100%)',
+                    role: 'Hồ sơ Phòng Khách (Living Room TV)',
+                    isKids: false,
+                    plan: 'Gói Cao Cấp (TV Phòng Khách)',
+                    maturity: 'T13 (Từ 13 tuổi trở lên)',
+                    favGenres: ['Hài', 'Gia đình', 'Bom tấn'],
+                    language: 'Tiếng Việt (Mặc định)',
+                    watchCount: 88,
+                    favCount: 31,
+                    watchHours: 310,
+                    createdDate: '10/01/2024',
+                    pinCode: 'Tắt'
+                }
+            ];
+
+            let PROFILES = store.get('mp_profiles', null);
+            if (!PROFILES || !Array.isArray(PROFILES) || PROFILES.length === 0) {
+                PROFILES = DEFAULT_PROFILES;
+            } else {
+                PROFILES = PROFILES.map((p, idx) => {
+                    const def = DEFAULT_PROFILES[idx] || DEFAULT_PROFILES[0];
+                    return {
+                        id: p.id || Date.now(),
+                        name: p.name || 'Hồ sơ ' + (idx + 1),
+                        email: p.email || def.email,
+                        phone: p.phone || def.phone,
+                        avatarBg: p.avatarBg || def.avatarBg,
+                        role: p.role || (p.isKids ? 'Hồ sơ Trẻ Em' : 'Thành viên Gia đình'),
+                        isKids: typeof p.isKids !== 'undefined' ? p.isKids : false,
+                        plan: p.plan || def.plan,
+                        maturity: p.maturity || (p.isKids ? 'P (Tất cả độ tuổi Trẻ Em)' : 'Tất cả độ tuổi (18+)'),
+                        favGenres: p.favGenres || def.favGenres,
+                        language: p.language || def.language,
+                        watchCount: p.watchCount || def.watchCount,
+                        favCount: p.favCount || def.favCount,
+                        watchHours: p.watchHours || def.watchHours,
+                        createdDate: p.createdDate || def.createdDate,
+                        pinCode: p.pinCode || def.pinCode
+                    };
+                });
+            }
+            store.set('mp_profiles', PROFILES);
+            let activeProfileId = store.get('mp_active_profile', 1);
+
+            let S = store.get('mp_state', null) || {};
+            S.user = S.user || null; 
+            S.subs = S.subs || {}; 
+            S.list = S.list || [];
+            const save = () => store.set('mp_state', S);
+            const sub = () => S.user ? (S.subs[S.user.email] || null) : null;
+            let libFilter = 'all', cycle = 'm', pendingEmail = '';
+
+            function getActiveProfile() {
+                return PROFILES.find(p => p.id === activeProfileId) || PROFILES[0];
+            }
+
+            function renderProfiles() {
+                const grid = $('#profilesGrid');
+                if (!grid) return;
+                grid.innerHTML = PROFILES.map(p => {
+                    const isActive = p.id === activeProfileId;
+                    return '<div class="profile-card-wrap">' +
+                        '<button class="profile-card ' + (isActive ? 'active' : '') + '" data-act="select-profile" data-pid="' + p.id + '">' +
+                        '<div class="profile-avatar" style="background:' + p.avatarBg + '">' +
+                        p.name.charAt(0).toUpperCase() +
+                        '</div>' +
+                        '<span class="profile-name">' + esc(p.name) + '</span>' +
+                        (p.isKids ? '<span class="profile-badge">Trẻ em</span>' : '') +
+                        '</button>' +
+                        '<button class="btn-profile-detail" data-act="view-profile-detail" data-pid="' + p.id + '" title="Xem chi tiết hồ sơ ' + esc(p.name) + '">' +
+                        ico('info', 14) + ' <span>Chi tiết</span>' +
+                        '</button>' +
+                        '</div>';
+                }).join('');
+            }
+
+            function switchProfile(pid) {
+                activeProfileId = pid;
+                store.set('mp_active_profile', activeProfileId);
+                renderProfiles();
+                updateNav();
+                const prof = getActiveProfile();
+                toast('Đã chuyển sang hồ sơ: ' + prof.name);
+                closeOv('m-profiles');
+            }
+
+            function addProfile() {
+                const name = prompt('Nhập tên hồ sơ mới của bạn:');
+                if (!name || name.trim().length < 2) return;
+                const colors = [
+                    'linear-gradient(135deg, #a50064 0%, #500030 100%)',
+                    'linear-gradient(135deg, #00d2ff 0%, #005a70 100%)',
+                    'linear-gradient(135deg, #ff9900 0%, #804d00 100%)',
+                    'linear-gradient(135deg, #9900ff 0%, #4d0080 100%)'
+                ];
+                const bg = colors[PROFILES.length % colors.length];
+                const isKids = confirm('Bạn có muốn bật chế độ Trẻ em cho hồ sơ này không?');
+                const cleanName = name.trim();
+                const newP = {
+                    id: Date.now(),
+                    name: cleanName,
+                    email: cleanName.toLowerCase().replace(/\s+/g, '') + '@movieplus.vn',
+                    phone: '0988 ' + Math.floor(100000 + Math.random() * 900000),
+                    avatarBg: bg,
+                    role: isKids ? 'Hồ sơ Trẻ Em (Kids Safe Profile)' : 'Thành viên Gia đình (Family Member)',
+                    isKids: isKids,
+                    plan: 'Gói Cao Cấp (Dùng chung)',
+                    maturity: isKids ? 'P (Tất cả độ tuổi Trẻ Em)' : 'Tất cả độ tuổi (18+)',
+                    favGenres: isKids ? ['Hoạt hình', 'Gia đình'] : ['Hành động', 'Bom tấn', 'Tình cảm'],
+                    language: 'Tiếng Việt (Mặc định)',
+                    watchCount: 0,
+                    favCount: 0,
+                    watchHours: 0,
+                    createdDate: new Date().toLocaleDateString('vi-VN'),
+                    pinCode: 'Tắt'
+                };
+                PROFILES.push(newP);
+                store.set('mp_profiles', PROFILES);
+                switchProfile(newP.id);
+            }
+
+            function viewProfileDetail(pid) {
+                const prof = PROFILES.find(p => p.id == pid) || getActiveProfile();
+                const container = $('#profileDetailContent');
+                if (!container) return;
+                const isActive = prof.id === activeProfileId;
+                const genresHTML = (Array.isArray(prof.favGenres) ? prof.favGenres : [prof.favGenres]).map(g => '<span class="chip">' + esc(g) + '</span>').join('');
+
+                container.innerHTML = 
+                    '<div class="pd-header">' +
+                        '<div class="pd-avatar" style="background:' + prof.avatarBg + '">' +
+                            prof.name.charAt(0).toUpperCase() +
+                        '</div>' +
+                        '<div class="pd-title-area">' +
+                            '<div class="pd-name-row">' +
+                                '<h3>' + esc(prof.name) + '</h3>' +
+                                (isActive ? '<span class="pd-active-badge">Đang Sử Dụng</span>' : '') +
+                                (prof.isKids ? '<span class="profile-badge">Trẻ em</span>' : '') +
+                            '</div>' +
+                            '<p class="pd-role">' + esc(prof.role) + ' • Ngày tạo: ' + esc(prof.createdDate) + '</p>' +
+                        '</div>' +
+                    '</div>' +
+
+                    '<div class="pd-stats-grid">' +
+                        '<div class="pd-stat-card">' +
+                            '<div class="pd-stat-num">' + prof.watchCount + '</div>' +
+                            '<div class="pd-stat-lbl">Phim Đã Xem</div>' +
+                        '</div>' +
+                        '<div class="pd-stat-card">' +
+                            '<div class="pd-stat-num">' + prof.favCount + '</div>' +
+                            '<div class="pd-stat-lbl">Phim Yêu Thích</div>' +
+                        '</div>' +
+                        '<div class="pd-stat-card">' +
+                            '<div class="pd-stat-num">' + prof.watchHours + 'h</div>' +
+                            '<div class="pd-stat-lbl">Thời Gian Xem</div>' +
+                        '</div>' +
+                    '</div>' +
+
+                    '<div class="pd-sections">' +
+                        '<div class="pd-card">' +
+                            '<h4>' + ico('user', 18) + ' Thông Tin Tài Khoản & Liên Hệ</h4>' +
+                            '<div class="pd-info-grid">' +
+                                '<div class="pd-item"><span class="lbl">Email Liên Hệ:</span><span class="val">' + esc(prof.email) + '</span></div>' +
+                                '<div class="pd-item"><span class="lbl">Số Điện Thoại:</span><span class="val">' + esc(prof.phone) + '</span></div>' +
+                                '<div class="pd-item"><span class="lbl">Gói Đăng Ký:</span><span class="val highlight">' + esc(prof.plan) + '</span></div>' +
+                                '<div class="pd-item"><span class="lbl">Loại Hồ Sơ:</span><span class="val">' + (prof.isKids ? 'Trẻ Em (Kiểm soát bởi Phụ huynh)' : 'Người Lớn (Đầy đủ tính năng)') + '</span></div>' +
+                            '</div>' +
+                        '</div>' +
+
+                        '<div class="pd-card">' +
+                            '<h4>' + ico('shield', 18) + ' Cài Đặt Xem Phim & Bảo Mật</h4>' +
+                            '<div class="pd-info-grid">' +
+                                '<div class="pd-item"><span class="lbl">Giới Hạn Độ Tuổi:</span><span class="val">' + esc(prof.maturity) + '</span></div>' +
+                                '<div class="pd-item"><span class="lbl">Ngôn Ngữ Ưa Thích:</span><span class="val">' + esc(prof.language) + '</span></div>' +
+                                '<div class="pd-item"><span class="lbl">Mã PIN Bảo Vệ:</span><span class="val">' + esc(prof.pinCode) + '</span></div>' +
+                                '<div class="pd-item"><span class="lbl">Thể Loại Thích Nhất:</span><div class="val-chips">' + genresHTML + '</div></div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+
+                    '<div class="pd-actions">' +
+                        (!isActive ? '<button class="btn btn-primary" data-act="select-profile-from-detail" data-pid="' + prof.id + '">Chuyển Sang Hồ Sơ Này</button>' : '<span class="pd-active-tag">' + ico('check', 16) + '<span>Hồ Sơ Đang Sử Dụng</span></span>') +
+                        '<button class="btn btn-ghost" data-act="edit-profile-detail" data-pid="' + prof.id + '">Chỉnh Sửa Thông Tin</button>' +
+                        '<button class="btn btn-ghost" data-close>Đóng</button>' +
+                    '</div>';
+
+                openOv('m-profile-detail');
+            }
+
+            function editProfileDetail(pid) {
+                const prof = PROFILES.find(p => p.id == pid);
+                if (!prof) return;
+
+                const newName = prompt('Nhập tên hồ sơ mới:', prof.name);
+                if (!newName || !newName.trim()) return;
+
+                const newEmail = prompt('Nhập email liên hệ cho hồ sơ:', prof.email) || prof.email;
+                const newPhone = prompt('Nhập số điện thoại:', prof.phone) || prof.phone;
+                const newLang = prompt('Ngôn ngữ ưa thích (VD: Tiếng Việt, Tiếng Anh):', prof.language) || prof.language;
+                const isKids = confirm('Bạn có muốn bật chế độ Trẻ em cho hồ sơ này không?');
+
+                prof.name = newName.trim();
+                prof.email = newEmail.trim();
+                prof.phone = newPhone.trim();
+                prof.language = newLang.trim();
+                prof.isKids = isKids;
+                if (isKids) {
+                    prof.maturity = 'P (Tất cả độ tuổi Trẻ Em)';
+                    prof.role = 'Hồ sơ Trẻ Em (Kids Safe Profile)';
+                } else {
+                    prof.role = 'Thành viên Gia đình (Family Member)';
+                }
+
+                store.set('mp_profiles', PROFILES);
+                renderProfiles();
+                updateNav();
+                toast('Đã cập nhật thông tin hồ sơ: ' + prof.name);
+                viewProfileDetail(prof.id);
+            }
+
+            /* ================= IMAGE GENERATOR & RENDER HELPER ================= */
+            const hue = m => (m.id * 47 + m.t.length * 13) % 360;
+            const artHTML = m => { const h = hue(m); return '<div class="art" style="--h:' + h + ';--h2:' + ((h + 50) % 360) + '"><span class="art-y">' + m.y + '</span><span class="art-t">' + esc(m.t) + '</span></div>' };
+            const getImgSrc = (path, size) => {
+                if (!path) return '';
+                if (path.startsWith('http') || path.startsWith('img/')) return path;
+                if (path.startsWith('/')) return IMG + size + path;
+                return path;
+            };
+            const imgTag = (path, size, alt, cls) => {
+                if (!path) return '';
+                const src = getImgSrc(path, size);
+                return '<img ' + (cls ? 'class="' + cls + '" ' : '') + 'src="' + src + '" alt="' + esc(alt) + '" loading="lazy" onload="this.classList.add(\'ok\')" onerror="this.remove()">';
+            };
+            const poster = (m, size) => '<div class="poster">' + artHTML(m) + imgTag(m.p, size || 'w342', 'Poster phim ' + m.t) + '</div>';
+            const backdrop = m => {
+                const useB = !!m.b, path = m.b || m.p;
+                if (!path) return '<div class="bd">' + artHTML(m) + '</div>';
+                const src = getImgSrc(path, useB ? 'w1280' : 'w500');
+                return '<div class="bd">' + artHTML(m) + '<img ' + (useB ? '' : 'class="blur" ') + 'src="' + src + '" alt="" onload="this.classList.add(\'ok\')" onerror="this.remove()"></div>';
+            };
+
+            /* ================= RENDER COMPONENTS ================= */
+            function card(m) {
+                const inL = S.list.includes(m.id);
+                return '<article class="card" data-movie="' + m.id + '" tabindex="0" aria-label="' + esc(m.t) + ', ' + m.y + '">' +
+                    '<div class="poster-wrap">' + poster(m) + '<span class="badge age">' + m.r + '</span>' +
+                    '<div class="c-ov"><div class="c-g">' + m.g.slice(0, 2).map(esc).join(', ') + '</div><div class="c-act">' +
+                    '<button class="ic play" data-act="play" data-id="' + m.id + '" aria-label="Xem ' + esc(m.t) + '" title="Phát phim">' + ico('play', 16) + '</button>' +
+                    '<button class="ic" data-act="detail" data-id="' + m.id + '" aria-label="Chi tiết ' + esc(m.t) + '" title="Xem chi tiết">' + ico('info', 16) + '</button>' +
+                    '<button class="ic" data-act="list" data-id="' + m.id + '" aria-label="' + (inL ? 'Bỏ khỏi danh sách' : 'Thêm vào danh sách') + '" title="Yêu thích">' + ico(inL ? 'check' : 'plus', 16) + '</button>' +
+                    '</div></div></div>' +
+                    '<div class="c-cap"><b>' + esc(m.t) + '</b><span><span>' + m.y + '</span><span>' + dur(m.d) + '</span></span></div></article>';
+            }
+
+            function renderHero() {
+                $('#heroBg').innerHTML = HERO.map((id, i) => '<div class="slide ' + (i === heroI ? 'on' : '') + '">' + backdrop(byId(id)) + '</div>').join('');
+                $('#heroDots').innerHTML = HERO.map((_, i) => '<button class="' + (i === heroI ? 'on' : '') + '" data-act="slide" data-i="' + i + '" aria-label="Phim nổi bật ' + (i + 1) + '"></button>').join('');
+                heroNow();
+            }
+            function heroNow() {
+                const m = byId(HERO[heroI]);
+                $('#heroNow').innerHTML = '<span class="live"></span><span>Đang chiếu nổi bật</span><button data-movie="' + m.id + '">' + esc(m.t) + '<em>(' + m.y + ')</em></button>';
+            }
+            let heroI = 0, heroT = null;
+            function goSlide(i) {
+                heroI = i;
+                $$('#heroBg .slide').forEach((s, k) => s.classList.toggle('on', k === i));
+                $$('#heroDots button').forEach((b, k) => b.classList.toggle('on', k === i));
+                heroNow();
+                clearInterval(heroT); heroT = setInterval(() => goSlide((heroI + 1) % HERO.length), 7000);
+            }
+
+            function renderStrip() {
+                const row = arr => { const h = arr.map(m => '<div data-movie="' + m.id + '">' + poster(m, 'w185') + '</div>').join(''); return '<div class="mq' + (arr === a2 ? ' rev' : '') + '">' + h + h + '</div>' };
+                const a1 = M.filter(m => m.id % 2 === 1), a2 = M.filter(m => m.id % 2 === 0);
+                $('#strip').innerHTML = row(a1) + row(a2);
+            }
+
+            function renderTop10() {
+                $('#t10').innerHTML = TOP10.map((id, i) => { const m = byId(id); return '<div class="t10" data-movie="' + id + '" tabindex="0" aria-label="Hạng ' + (i + 1) + ': ' + esc(m.t) + '"><span class="num" aria-hidden="true">' + (i + 1) + '</span>' + poster(m) + '</div>' }).join('');
+            }
+
+            function renderLibrary() {
+                $('#chips').innerHTML = CATS.map(c => '<button class="chip ' + (libFilter === c.id ? 'on' : '') + '" role="tab" aria-selected="' + (libFilter === c.id) + '" data-act="filter" data-cat="' + c.id + '">' + c.n + '</button>').join('');
+                const list = libFilter === 'all' ? M : M.filter(m => m.c === libFilter);
+                $('#libGrid').innerHTML = list.map(card).join('');
+                const my = S.list.map(byId).filter(Boolean);
+                $('#mylist').innerHTML = my.length ? '<div class="mylist"><h3>Danh Sách Yêu Thích Của Tôi (' + my.length + ')</h3><div class="grid">' + my.map(card).join('') + '</div></div>' : '';
+            }
+
+            function renderPlans() {
+                $('#cycleSeg').innerHTML = '<button class="' + (cycle === 'm' ? 'on' : '') + '" data-act="cycle" data-cycle="m">Hằng Tháng</button><button class="' + (cycle === 'y' ? 'on' : '') + '" data-act="cycle" data-cycle="y">Hằng Năm <small>Tặng 2 tháng</small></button>';
+                const cur = sub();
+                $('#plansGrid').innerHTML = PLANS.map(p => {
+                    const price = cycle === 'y' ? p.price * 10 : p.price;
+                    const same = cur && cur.plan === p.id;
+                    const label = same ? 'Gói Hiện Tại' : (cur ? 'Nâng Cấp Gói Này' : 'Dùng Thử Miễn Phí 7 Ngày');
+                    return '<div class="plan ' + (p.id === 'standard' ? 'pop' : '') + (p.id === 'premium' ? ' gold' : '') + '">' +
+                        (p.tag ? '<span class="tag">' + p.tag + '</span>' : '') +
+                        '<div><h3>Gói ' + p.name + '</h3><div class="q">' + p.q + '</div></div>' +
+                        '<div class="pr"><b>' + price.toLocaleString('vi-VN') + '</b><span>đ/' + (cycle === 'y' ? 'năm' : 'tháng') + '</span></div>' +
+                        '<div class="pr-note">' + (cycle === 'y' ? 'Tương đương ' + fmt(Math.round(price / 12)) + '/tháng' : '') + '</div>' +
+                        '<ul>' + p.feat.map(f => '<li>' + ico('check', 18) + '<span>' + f + '</span></li>').join('') + '</ul>' +
+                        '<button class="btn ' + (p.id === 'standard' ? 'btn-primary' : (p.id === 'premium' ? 'btn-gold' : 'btn-ghost')) + ' btn-block" data-act="plan" data-plan="' + p.id + '" ' + (same ? 'disabled' : '') + '>' + label + '</button></div>';
+                }).join('');
+            }
+
+            function updateNav() {
+                const u = S.user, sb = sub(), prof = getActiveProfile();
+                $('#navAuth').innerHTML = u
+                    ? '<div class="acct">' +
+                      '<button class="avatar" data-act="open-profiles" style="background:' + prof.avatarBg + '" aria-haspopup="true" aria-label="Hồ sơ ' + esc(prof.name) + '" title="Chuyển đổi hồ sơ">' + esc(prof.name.charAt(0).toUpperCase()) + '</button>' +
+                      '<div class="acct-menu">' +
+                      '<div class="am-h"><b>' + esc(u.name) + '</b><small>' + esc(u.email) + '</small></div>' +
+                      '<div style="background:rgba(255,255,255,0.04); padding:12px 20px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center;">' +
+                      '<div><small style="color:var(--tx3); font-size:11px;">Đang dùng hồ sơ</small><b style="display:block; color:#fff; font-size:14px;">' + esc(prof.name) + '</b></div>' +
+                      '<button class="btn btn-ghost sm" data-act="open-profiles" style="padding:4px 10px; font-size:12px;">Đổi</button>' +
+                      '</div>' +
+                      (sb ? '<div class="am-plan"><span>Gói ' + PLAN(sb.plan).name + '</span><small>Gia hạn ngày ' + fdate(sb.renew) + '</small></div><a href="#plans">Đổi gói cước</a><button data-act="cancel">Hủy gói cước</button>' : '<a href="#plans">Chọn gói cước để xem</a>') +
+                      '<button data-act="open-profiles">Chuyển Đổi Hồ Sơ</button>' +
+                      '<button data-act="logout">Đăng xuất</button>' +
+                      '</div></div>'
+                    : '<button class="btn btn-ghost sm" data-act="login">Đăng nhập</button><a class="btn btn-primary sm" href="#plans">Dùng thử 7 ngày</a>';
+            }
+
+            function renderAll() { renderHero(); renderStrip(); renderTop10(); renderLibrary(); renderPlans(); updateNav(); renderProfiles(); initIcons(); }
+            function initIcons(root) { $$('[data-ico]', root || document).forEach(el => { el.innerHTML = ico(el.dataset.ico, +el.dataset.size || 20) }); }
+
+            /* ================= OVERLAY HANDLERS ================= */
+            const openOv = id => { document.getElementById(id).classList.add('open'); document.body.classList.add('lock') };
+            const closeOv = id => {
+                const o = document.getElementById(id); o.classList.remove('open');
+                if (id === 'm-player') stopPlayer();
+                if (!$('.overlay.open')) document.body.classList.remove('lock');
+            };
+            const closeAllOv = () => $$('.overlay.open').forEach(o => closeOv(o.id));
+            let toastT;
+            function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 3000) }
+
+            /* ================= MOVIE DETAIL MODAL ================= */
+            let detailId = null;
+            function openMovie(id) {
+                const m = byId(id); if (!m) return;
+                closeOv('m-search');
+                detailId = id;
+                const inL = S.list.includes(id);
+                const similar = M.filter(x => x.c === m.c && x.id !== id).slice(0, 6);
+                $('#dm').innerHTML =
+                    '<div class="dm-hero">' + backdrop(m) +
+                    '<div class="dm-head"><h3>' + esc(m.t) + '</h3>' +
+                    '<div class="dm-meta"><span style="color:var(--ok)">' + m.y + '</span><span class="badge">' + m.r + '</span><span>' + dur(m.d) + '</span><span class="muted">' + m.g.map(esc).join(', ') + '</span></div>' +
+                    '<div class="dm-act">' +
+                    '<button class="btn btn-primary" data-act="play" data-id="' + id + '">' + ico('play', 18) + ' Phát Phim Ngay</button>' +
+                    '<a class="btn btn-soft" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=' + encodeURIComponent(m.t + ' ' + m.y + ' trailer') + '">' + ico('trailer', 18) + ' Xem Trailer</a>' +
+                    '<button class="ic" style="width:44px;height:44px" data-act="list" data-id="' + id + '" aria-label="' + (inL ? 'Bỏ khỏi danh sách' : 'Thêm vào danh sách') + '">' + ico(inL ? 'check' : 'plus', 20) + '</button>' +
+                    '</div></div></div>' +
+                    '<div class="dm-body"><p class="syn">' + esc(m.s) + '</p>' +
+                    '<dl><div><dt>Đạo diễn</dt><dd>' + esc(m.dr) + '</dd></div><div><dt>Thể loại</dt><dd>' + m.g.map(esc).join(', ') + '</dd></div><div><dt>Phân loại</dt><dd>' + esc(CATS.find(c => c.id === m.c).n) + '</dd></div></dl>' +
+                    (similar.length ? '<div class="similar"><h4>Phim Tương Tự Có Thể Bạn Thích</h4><div class="sim-row">' + similar.map(x => '<div data-movie="' + x.id + '" tabindex="0" aria-label="' + esc(x.t) + '">' + poster(x, 'w185') + '</div>').join('') + '</div></div>' : '') +
+                    '</div>';
+                openOv('m-detail');
+                $('#m-detail .modal').scrollTop = 0;
+            }
+
+            function toggleList(id) {
+                const i = S.list.indexOf(id), m = byId(id);
+                if (i >= 0) { S.list.splice(i, 1); toast('Đã bỏ "' + m.t + '" khỏi danh sách yêu thích') }
+                else { S.list.push(id); toast('Đã thêm "' + m.t + '" vào danh sách yêu thích') }
+                save(); renderLibrary(); renderTop10();
+                if ($('#m-detail').classList.contains('open') && detailId === id) { const sc = $('#m-detail .modal').scrollTop; openMovie(id); $('#m-detail .modal').scrollTop = sc }
+            }
+
+            function watch(id) {
+                if (!sub()) {
+                    closeAllOv();
+                    toast('Vui lòng chọn một gói cước để xem phim');
+                    const el = $('#plans'); el.scrollIntoView({ behavior: 'smooth' });
+                    $('#plansGrid').classList.remove('flash'); void $('#plansGrid').offsetWidth; $('#plansGrid').classList.add('flash');
+                    return;
+                }
+                openPlayer(id);
+            }
+
+            /* ================= SEARCH SYSTEM ================= */
+            function openSearch() {
+                openOv('m-search'); $('#sq').value = ''; doSearch(''); setTimeout(() => $('#sq').focus(), 60);
+            }
+            function doSearch(q) {
+                const n = norm(q.trim());
+                let res, head;
+                if (!n) { res = TOP10.map(byId); head = 'Gợi ý tìm kiếm phổ biến' }
+                else { res = M.filter(m => norm([m.t, m.dr, m.g.join(' '), m.y].join(' ')).includes(n)); head = res.length ? 'Kết quả tìm kiếm cho "' + q.trim() + '"' : '' }
+                $('#sqH').textContent = head;
+                $('#sqRes').innerHTML = res.length ? res.map(card).join('') : '<p class="empty" style="grid-column:1/-1">Không tìm thấy kết quả nào phù hợp cho "' + esc(q.trim()) + '". Vui lòng nhập từ khóa khác.</p>';
+            }
+
+            /* ================= LOGIN & AUTH SYSTEM ================= */
+            function openLogin() { openOv('m-login'); setTimeout(() => $('#lgEmail').focus(), 60); }
+
+            /* ================= CHECKOUT & SUBSCRIPTION ================= */
+            const co = { plan: 'standard', cycle: 'm', step: 1, pay: 'card', coupon: null, email: '', name: '', card: { name: '', num: '', exp: '', cvc: '' }, busy: false, done: null };
+            function calc() {
+                const p = PLAN(co.plan); const base = co.cycle === 'y' ? p.price * 10 : p.price;
+                const disc = co.coupon ? Math.round(base * co.coupon.pct / 100) : 0;
+                return { p, base, disc, total: base - disc };
+            }
+            const renewDate = () => new Date(Date.now() + 7 * 864e5);
+            function openCheckout(planId) {
+                co.plan = planId; co.cycle = cycle; co.step = 1; co.coupon = null; co.busy = false; co.done = null;
+                co.email = S.user ? S.user.email : (pendingEmail || ''); co.name = S.user ? S.user.name : '';
+                renderCheckout(); openOv('m-checkout');
+            }
+            function renderCheckout() { renderStepper(); renderPane(); renderSum(); initIcons($('#m-checkout')); }
+            function renderStepper() {
+                $('#coStepper').innerHTML = ['Tài khoản', 'Thanh toán', 'Hoàn tất'].map((n, i) => '<div class="st ' + (co.step === i + 1 ? 'on' : '') + ' ' + (co.step > i + 1 ? 'done' : '') + '"><i>' + (co.step > i + 1 ? ico('check', 14) : i + 1) + '</i><span>' + n + '</span></div>').join('<hr>');
+            }
+            function renderPane() {
+                const el = $('#coPane');
+                if (co.step === 1) {
+                    el.innerHTML = '<h3 class="mt" id="coTitle">Tạo Tài Khoản MOVIE+</h3><p class="muted" style="margin-bottom:22px">Đăng ký chỉ mất 30 giây. Bạn được dùng thử 7 ngày miễn phí.</p>' +
+                        '<div class="field"><label for="coName">Họ và Tên</label><input id="coName" autocomplete="name" value="' + esc(co.name) + '" placeholder="Ví dụ: Nguyễn Văn A"></div>' +
+                        '<div class="field"><label for="coEmail">Địa chỉ Email</label><input id="coEmail" type="email" autocomplete="email" value="' + esc(co.email) + '" placeholder="ten@email.com"></div>' +
+                        '<label class="chk"><input type="checkbox" id="coTerms" checked><span>Tôi đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của MOVIE+.</span></label>' +
+                        '<p class="err" id="coErr" role="alert"></p>' +
+                        '<button class="btn btn-primary btn-block" data-act="co-next">Tiếp Tục</button>';
+                } else if (co.step === 2) {
+                    const isCard = co.pay === 'card';
+                    el.innerHTML = '<h3 class="mt" id="coTitle">Phương Thức Thanh Toán</h3><p class="muted">Hệ thống chỉ trừ tiền sau khi hết 7 ngày dùng thử miễn phí.</p>' +
+                        '<div class="pms">' + PAY.map(p => '<button class="pm ' + (co.pay === p.id ? 'sel' : '') + '" data-act="pay" data-pm="' + p.id + '" aria-pressed="' + (co.pay === p.id) + '"><span class="pm-i" style="background:' + p.c + '">' + p.k + '</span><span><b>' + p.n + '</b><small>' + p.d + '</small></span><span class="dot"></span></button>').join('') + '</div>' +
+                        (isCard ?
+                            '<div class="field"><label for="cName">Chủ Thẻ</label><input id="cName" autocomplete="cc-name" value="' + esc(co.card.name) + '" placeholder="NGUYEN VAN A"></div>' +
+                            '<div class="field"><label for="cNum">Số Thẻ Quốc Tế</label><input id="cNum" inputmode="numeric" autocomplete="cc-number" value="' + esc(co.card.num) + '" placeholder="1234 5678 9012 3456" maxlength="23"></div>' +
+                            '<div class="field"><div class="two"><div><label for="cExp" style="display:block;margin-bottom:6px;font-size:13px;color:var(--tx2)">Hết Hạn (MM/YY)</label><input id="cExp" inputmode="numeric" autocomplete="cc-exp" value="' + esc(co.card.exp) + '" placeholder="08/29" maxlength="5"></div><div><label for="cCvc" style="display:block;margin-bottom:6px;font-size:13px;color:var(--tx2)">Mã Bảo Mật CVC</label><input id="cCvc" inputmode="numeric" autocomplete="cc-csc" value="' + esc(co.card.cvc) + '" placeholder="123" maxlength="4"></div></div></div>'
+                            : '<p class="note">Mô phỏng thanh toán an toàn qua cổng ' + esc(PAY.find(p => p.id === co.pay).n) + '. Không phát sinh giao dịch thật.</p>') +
+                        '<p class="err" id="coErr" role="alert"></p>' +
+                        '<div class="row"><button class="btn btn-ghost" data-act="co-back">Quay Lại</button><button class="btn btn-primary" data-act="co-pay" ' + (co.busy ? 'disabled' : '') + '>' + (co.busy ? '<span class="spin"></span> Đang xử lý...' : ico('lock', 16) + ' Xác Nhận Đăng Ký Gói') + '</button></div>';
+                } else {
+                    const d = co.done;
+                    el.innerHTML = '<div class="success"><div class="tick">' + ico('check', 36) + '</div><h3 id="coTitle">Đăng Ký Thành Công!</h3>' +
+                        '<p>Gói <b>' + esc(PLAN(d.plan).name) + '</b> của bạn đã được kích hoạt. Bạn được trải nghiệm miễn phí 7 ngày đến hết ngày <b>' + fdate(d.renew) + '</b>.</p>' +
+                        '<button class="btn btn-primary btn-lg" data-act="start">Bắt Đầu Xem Phim Ngay</button></div>';
+                }
+            }
+            function renderSum() {
+                const c = calc(), rd = renewDate();
+                const el = $('#coSum');
+                el.innerHTML = '<h4 style="font-size:18px;font-weight:700">Tóm Tắt Đơn Hàng</h4>' +
+                    '<div class="sum-plan"><b>Gói ' + c.p.name + '</b><span>' + c.p.q + '</span></div>' +
+                    '<div class="seg" style="align-self:flex-start"><button class="' + (co.cycle === 'm' ? 'on' : '') + '" data-act="co-cycle" data-cycle="m">Hằng Tháng</button><button class="' + (co.cycle === 'y' ? 'on' : '') + '" data-act="co-cycle" data-cycle="y">Hằng Năm</button></div>' +
+                    '<div class="line"><span>Gói ' + c.p.name + ' (' + (co.cycle === 'y' ? '12 tháng, giảm 20%' : '1 tháng') + ')</span><b>' + fmt(c.base) + '</b></div>' +
+                    (c.disc ? '<div class="line ok"><span>Mã ' + co.coupon.code + ' (-' + co.coupon.pct + '%)</span><b>-' + fmt(c.disc) + '</b></div>' : '') +
+                    '<div class="coupon"><input id="coCoupon" placeholder="Mã ưu đãi (thử MOVIE20)" aria-label="Mã ưu đãi" value="' + (co.coupon ? esc(co.coupon.code) : '') + '"><button data-act="co-coupon">Áp Dụng</button></div>' +
+                    '<div class="cp-msg" id="cpMsg" role="status"></div>' +
+                    '<div class="line big"><span>Thanh toán hôm nay</span><b>0đ</b></div>' +
+                    '<p class="fine">Miễn phí 7 ngày đầu. Bắt đầu từ ' + rd.toLocaleDateString('vi-VN') + ' sẽ tự động gia hạn với giá ' + fmt(c.total) + '/' + (co.cycle === 'y' ? 'năm' : 'tháng') + '. Hủy bất cứ lúc nào trước ngày gia hạn.</p>';
+            }
+            function setErr(msg) { const e = $('#coErr'); if (e) e.textContent = msg }
+            function coNext() {
+                const name = $('#coName').value.trim(), email = $('#coEmail').value.trim();
+                if (name.length < 2) return setErr('Vui lòng nhập họ và tên của bạn.');
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return setErr('Định dạng email không hợp lệ (ví dụ: ten@email.com).');
+                if (!$('#coTerms').checked) return setErr('Bạn cần đồng ý với Điều khoản dịch vụ để tiếp tục.');
+                co.name = name; co.email = email; co.step = 2; renderCheckout();
+            }
+            function coPay() {
+                co.busy = true; renderPane();
+                setTimeout(() => {
+                    S.user = { name: co.name, email: co.email };
+                    S.subs[co.email] = { plan: co.plan, cycle: co.cycle, renew: renewDate().toISOString(), total: calc().total };
+                    save(); updateNav();
+                    co.done = { plan: co.plan, cycle: co.cycle, renew: renewDate().toISOString(), total: calc().total };
+                    co.step = 3; co.busy = false; renderCheckout();
+                }, 1200);
+            }
+
+            /* ================= SIMULATED PLAYER ================= */
+            let playId = null, playTimer = null, playSec = 0;
+            function openPlayer(id) {
+                const m = byId(id); if (!m) return;
+                playId = id; playSec = 0;
+                $('#pTitle').textContent = m.t;
+                $('#pSub').textContent = m.y + ' • ' + m.g.join(', ');
+                $('#pQ').textContent = PLAN((sub() || {}).plan || 'standard').q;
+                $('#pBg').innerHTML = backdrop(m);
+                openOv('m-player');
+                togglePlay(true);
+            }
+            function togglePlay(force) {
+                const p = $('#m-player');
+                const state = force !== undefined ? force : !p.classList.contains('playing');
+                p.classList.toggle('playing', state);
+                $('#pPlay').innerHTML = ico(state ? 'pause' : 'play', 24);
+                $('#pBig').innerHTML = ico(state ? 'pause' : 'play', 40);
+                clearInterval(playTimer);
+                if (state) {
+                    playTimer = setInterval(() => {
+                        playSec++;
+                        const m = byId(playId);
+                        const total = (m ? m.d : 120) * 60;
+                        if (playSec >= total) playSec = 0;
+                        const pct = (playSec / total) * 100;
+                        $('#pFill').style.width = pct + '%';
+                        $('#pKnob').style.left = pct + '%';
+                        const curM = Math.floor(playSec / 60), curS = String(playSec % 60).padStart(2, '0');
+                        const totM = Math.floor(total / 60), totS = String(total % 60).padStart(2, '0');
+                        $('#pTime').textContent = curM + ':' + curS + ' / ' + totM + ':' + totS;
+                    }, 1000);
+                }
+            }
+            function stopPlayer() { clearInterval(playTimer); $('#m-player').classList.remove('playing'); }
+
+            /* ================= GLOBAL EVENT LISTENERS ================= */
+            document.addEventListener('click', e => {
+                const btn = e.target.closest('[data-act]');
+                const closeBtn = e.target.closest('[data-close]');
+                const movBtn = e.target.closest('[data-movie]');
+
+                if (closeBtn) {
+                    const ov = closeBtn.closest('.overlay');
+                    if (ov) closeOv(ov.id);
+                    return;
+                }
+
+                if (btn) {
+                    const act = btn.dataset.act;
+                    if (act === 'search') openSearch();
+                    else if (act === 'login') openLogin();
+                    else if (act === 'menu') $('#navLinks').classList.toggle('open');
+                    else if (act === 'acct') $('.acct-menu').classList.toggle('open');
+                    else if (act === 'open-profiles') { openOv('m-profiles'); renderProfiles(); }
+                    else if (act === 'select-profile') switchProfile(+btn.dataset.pid);
+                    else if (act === 'add-profile') addProfile();
+                    else if (act === 'view-profile-detail') viewProfileDetail(+btn.dataset.pid);
+                    else if (act === 'view-active-profile-detail') viewProfileDetail(activeProfileId);
+                    else if (act === 'select-profile-from-detail') { switchProfile(+btn.dataset.pid); closeOv('m-profile-detail'); }
+                    else if (act === 'edit-profile-detail') editProfileDetail(+btn.dataset.pid);
+                    else if (act === 'logout') { S.user = null; save(); updateNav(); toast('Đã đăng xuất tài khoản'); }
+                    else if (act === 'cancel') {
+                        if (S.user && S.subs[S.user.email]) {
+                            delete S.subs[S.user.email]; save(); updateNav(); renderPlans();
+                            toast('Đã hủy gia hạn gói cước thành công');
+                        }
+                    }
+                    else if (act === 'slide') goSlide(+btn.dataset.i);
+                    else if (act === 'filter') { libFilter = btn.dataset.cat; renderLibrary(); }
+                    else if (act === 'cycle') { cycle = btn.dataset.cycle; renderPlans(); }
+                    else if (act === 'plan') openCheckout(btn.dataset.plan);
+                    else if (act === 'play') watch(+btn.dataset.id);
+                    else if (act === 'detail') openMovie(+btn.dataset.id);
+                    else if (act === 'list') toggleList(+btn.dataset.id);
+                    else if (act === 'co-next') coNext();
+                    else if (act === 'co-back') { co.step = 1; renderCheckout(); }
+                    else if (act === 'co-pay') coPay();
+                    else if (act === 'co-cycle') { co.cycle = btn.dataset.cycle; renderCheckout(); }
+                    else if (act === 'pay') { co.pay = btn.dataset.pm; renderPane(); }
+                    else if (act === 'co-coupon') {
+                        const code = $('#coCoupon').value.trim().toUpperCase();
+                        const pct = COUPONS[code];
+                        if (pct) { co.coupon = { code, pct }; renderSum(); $('#cpMsg').className = 'cp-msg ok'; $('#cpMsg').textContent = 'Đã áp dụng mã giảm giá ' + pct + '%!'; }
+                        else { $('#cpMsg').className = 'cp-msg bad'; $('#cpMsg').textContent = 'Mã ưu đãi không hợp lệ'; }
+                    }
+                    else if (act === 'start') { closeOv('m-checkout'); if (detailId) watch(detailId); }
+                    else if (act === 'ptoggle') togglePlay();
+                    else if (act === 'pseek') { playSec = Math.max(0, playSec + (+btn.dataset.d)); }
+                    else if (act === 'pfs') {
+                        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+                        else document.exitFullscreen().catch(() => {});
+                    }
+                    else if (act === 'row') {
+                        const track = $('#t10');
+                        track.scrollBy({ left: btn.dataset.d * 320, behavior: 'smooth' });
+                    }
+                    return;
+                }
+
+                if (movBtn) {
+                    openMovie(+movBtn.dataset.movie);
+                    return;
+                }
+
+                if (!e.target.closest('.acct')) {
+                    const m = $('.acct-menu'); if (m) m.classList.remove('open');
+                }
+            });
+
+            // Input handlers
+            $('#sq').addEventListener('input', e => doSearch(e.target.value));
+
+            $('#heroForm').addEventListener('submit', e => {
+                e.preventDefault();
+                pendingEmail = $('#heroEmail').value.trim();
+                openCheckout('standard');
+            });
+
+            $('#finalForm').addEventListener('submit', e => {
+                e.preventDefault();
+                pendingEmail = $('#finalEmail').value.trim();
+                openCheckout('standard');
+            });
+
+            $('#loginForm').addEventListener('submit', e => {
+                e.preventDefault();
+                const email = $('#lgEmail').value.trim();
+                S.user = { name: email.split('@')[0], email };
+                save(); updateNav(); closeOv('m-login');
+                toast('Đăng nhập thành công! Chào mừng ' + S.user.name);
+            });
+
+            // Navbar scroll listener
+            window.addEventListener('scroll', () => {
+                $('#nav').classList.toggle('solid', window.scrollY > 40);
+            });
+
+            // Keyboard navigation
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape') closeAllOv();
+            });
+
+            /* ================= INITIALIZATION ================= */
+            renderAll();
+            goSlide(0);
+
+        })();
+    </script>
+</body>
+
+</html>
