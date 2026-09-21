@@ -103,7 +103,7 @@ button:active, .btn:active, .chip:active, .mobile-nav-item:active {
 }
 
 .container {
-    width: min(1280px, calc(100% - 48px));
+    width: min(1440px, calc(100% - 64px));
     margin-inline: auto;
 }
 
@@ -460,9 +460,9 @@ button:active, .btn:active, .chip:active, .mobile-nav-item:active {
     inset: 0;
     z-index: -1;
     background: 
-        radial-gradient(circle at 70% 30%, rgba(229, 9, 20, 0.15), transparent 50%),
-        linear-gradient(90deg, rgba(5, 5, 7, 0.96) 0%, rgba(5, 5, 7, 0.75) 45%, rgba(5, 5, 7, 0.3) 100%),
-        linear-gradient(to top, var(--bg) 0%, transparent 40%);
+        radial-gradient(circle at 75% 30%, rgba(229, 9, 20, 0.22), transparent 55%),
+        linear-gradient(90deg, rgba(5, 5, 7, 0.92) 0%, rgba(5, 5, 7, 0.65) 45%, rgba(5, 5, 7, 0.2) 100%),
+        linear-gradient(to top, var(--bg) 0%, transparent 35%);
 }
 
 .hero-inner {
@@ -525,10 +525,11 @@ button:active, .btn:active, .chip:active, .mobile-nav-item:active {
 
 .cta-form {
     display: flex;
-    max-width: 660px;
+    max-width: 680px;
+    width: 100%;
     position: relative;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 24px var(--red-glow);
+    border-radius: 10px;
 }
 
 .cta-form input {
@@ -537,18 +538,19 @@ button:active, .btn:active, .chip:active, .mobile-nav-item:active {
     height: 62px;
     padding: 0 24px;
     background: rgba(18, 18, 26, 0.85);
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-right: 0;
-    border-radius: 8px 0 0 8px;
+    border-radius: 10px 0 0 10px;
     color: #fff;
     font-size: 16px;
     backdrop-filter: blur(12px);
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .cta-form input:focus {
     outline: none;
     border-color: var(--red);
+    box-shadow: 0 0 16px var(--red-glow);
 }
 
 .cta-form input::placeholder {
@@ -557,7 +559,12 @@ button:active, .btn:active, .chip:active, .mobile-nav-item:active {
 
 .cta-form .btn {
     height: 62px;
-    border-radius: 0 8px 8px 0;
+    padding: 0 32px;
+    white-space: nowrap;
+    border-radius: 0 10px 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
 }
 
 .hero small.fine {
