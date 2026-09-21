@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>MOVIE+ | Xem Phim Không Giới Hạn - Bom Tấn Việt & Quốc Tế 4K HDR</title>
     <meta name="description"
         content="Xem phim bom tấn chiếu rạp, điện ảnh Việt Nam và quốc tế bản quyền sắc nét 4K HDR trên MOVIE+. Dùng thử miễn phí 7 ngày trên mọi thiết bị.">
@@ -22,6 +22,7 @@
 <body>
 
     <!-- ================= NAVBAR ================= -->
+    <div class="nav-backdrop" id="navBackdrop" data-act="close-menu"></div>
     <header class="nav" id="nav">
         <div class="container nav-in">
             <a class="logo" href="#top" aria-label="MOVIE+ trang chủ">MOVIE<span>+</span></a>
@@ -33,6 +34,7 @@
                 <a href="#plans">Gói cước</a>
                 <a href="#reviews">Đánh giá</a>
                 <a href="#faq">Hỏi đáp</a>
+                <div class="mobile-nav-auth" id="mobileNavAuth"></div>
             </nav>
             <div class="nav-r">
                 <button class="ic-btn" data-act="search" aria-label="Tìm kiếm phim" data-ico="search"></button>
@@ -1034,9 +1036,18 @@
                 }).join('');
             }
 
+            function toggleMobileMenu(force) {
+                const links = $('#navLinks');
+                const backdrop = $('#navBackdrop');
+                const state = force !== undefined ? force : !links.classList.contains('open');
+                links.classList.toggle('open', state);
+                if (backdrop) backdrop.classList.toggle('open', state);
+                document.body.classList.toggle('lock-nav', state);
+            }
+
             function updateNav() {
                 const u = S.user, sb = sub(), prof = getActiveProfile();
-                $('#navAuth').innerHTML = u
+                const authHTML = u
                     ? '<div class="acct">' +
                       '<button class="avatar" data-act="open-profiles" style="background:' + prof.avatarBg + '" aria-haspopup="true" aria-label="Hồ sơ ' + esc(prof.name) + '" title="Chuyển đổi hồ sơ">' + esc(prof.name.charAt(0).toUpperCase()) + '</button>' +
                       '<div class="acct-menu">' +
@@ -1050,16 +1061,41 @@
                       '<button data-act="logout">Đăng xuất</button>' +
                       '</div></div>'
                     : '<button class="btn btn-ghost sm" data-act="login">Đăng nhập</button><a class="btn btn-primary sm" href="#plans">Dùng thử 7 ngày</a>';
+
+                const mobAuthHTML = u
+                    ? '<div class="mob-user-box">' +
+                      '<div class="mob-user-info"><span class="avatar sm" style="background:' + prof.avatarBg + '">' + esc(prof.name.charAt(0).toUpperCase()) + '</span><div><b>' + esc(prof.name) + '</b><small>' + esc(u.email) + '</small></div></div>' +
+                      '<div class="mob-user-btns">' +
+                      '<button class="btn btn-ghost sm" data-act="open-profiles">Chuyển đổi hồ sơ</button>' +
+                      '<button class="btn btn-ghost sm" data-act="logout">Đăng xuất</button>' +
+                      '</div></div>'
+                    : '<div class="mob-auth-btns"><button class="btn btn-primary btn-block" data-act="login">Đăng nhập tài khoản</button></div>';
+
+                $('#navAuth').innerHTML = authHTML;
+                const mobAuth = $('#mobileNavAuth');
+                if (mobAuth) mobAuth.innerHTML = mobAuthHTML;
             }
 
             function renderAll() { renderHero(); renderStrip(); renderTop10(); renderLibrary(); renderPlans(); updateNav(); renderProfiles(); initIcons(); }
             function initIcons(root) { $$('[data-ico]', root || document).forEach(el => { el.innerHTML = ico(el.dataset.ico, +el.dataset.size || 20) }); }
 
             /* ================= OVERLAY HANDLERS ================= */
-            const openOv = id => { document.getElementById(id).classList.add('open'); document.body.classList.add('lock') };
+            const openOv = id => {
+                document.getElementById(id).classList.add('open');
+                document.body.classList.add('lock');
+                if (id === 'm-player') {
+                    const mn = $('#mobileNav');
+                    if (mn) mn.classList.add('hide');
+                }
+            };
             const closeOv = id => {
-                const o = document.getElementById(id); o.classList.remove('open');
-                if (id === 'm-player') stopPlayer();
+                const o = document.getElementById(id);
+                o.classList.remove('open');
+                if (id === 'm-player') {
+                    stopPlayer();
+                    const mn = $('#mobileNav');
+                    if (mn) mn.classList.remove('hide');
+                }
                 if (!$('.overlay.open')) document.body.classList.remove('lock');
             };
             const closeAllOv = () => $$('.overlay.open').forEach(o => closeOv(o.id));
@@ -1243,6 +1279,11 @@
                 const btn = e.target.closest('[data-act]');
                 const closeBtn = e.target.closest('[data-close]');
                 const movBtn = e.target.closest('[data-movie]');
+                const navLink = e.target.closest('#navLinks a');
+
+                if (navLink) {
+                    toggleMobileMenu(false);
+                }
 
                 if (closeBtn) {
                     const ov = closeBtn.closest('.overlay');
@@ -1253,17 +1294,18 @@
                 if (btn) {
                     const act = btn.dataset.act;
                     if (act === 'search') openSearch();
-                    else if (act === 'login') openLogin();
-                    else if (act === 'menu') $('#navLinks').classList.toggle('open');
+                    else if (act === 'login') { toggleMobileMenu(false); openLogin(); }
+                    else if (act === 'menu') toggleMobileMenu();
+                    else if (act === 'close-menu') toggleMobileMenu(false);
                     else if (act === 'acct') $('.acct-menu').classList.toggle('open');
-                    else if (act === 'open-profiles') { openOv('m-profiles'); renderProfiles(); }
+                    else if (act === 'open-profiles') { toggleMobileMenu(false); openOv('m-profiles'); renderProfiles(); }
                     else if (act === 'select-profile') switchProfile(+btn.dataset.pid);
                     else if (act === 'add-profile') addProfile();
                     else if (act === 'view-profile-detail') viewProfileDetail(+btn.dataset.pid);
                     else if (act === 'view-active-profile-detail') viewProfileDetail(activeProfileId);
                     else if (act === 'select-profile-from-detail') { switchProfile(+btn.dataset.pid); closeOv('m-profile-detail'); }
                     else if (act === 'edit-profile-detail') editProfileDetail(+btn.dataset.pid);
-                    else if (act === 'logout') { S.user = null; save(); updateNav(); toast('Đã đăng xuất tài khoản'); }
+                    else if (act === 'logout') { toggleMobileMenu(false); S.user = null; save(); updateNav(); toast('Đã đăng xuất tài khoản'); }
                     else if (act === 'cancel') {
                         if (S.user && S.subs[S.user.email]) {
                             delete S.subs[S.user.email]; save(); updateNav(); renderPlans();
@@ -1335,14 +1377,40 @@
                 toast('Đăng nhập thành công! Chào mừng ' + S.user.name);
             });
 
+            // Mobile nav active tab scroll updater
+            function updateMobileNavScroll() {
+                const secs = [
+                    { id: 'top', el: $('#top') },
+                    { id: 'trending', el: $('#trending') },
+                    { id: 'library', el: $('#library') },
+                    { id: 'plans', el: $('#plans') }
+                ];
+                const scrollPos = window.scrollY + 220;
+                let activeId = 'top';
+                for (const s of secs) {
+                    if (s.el && s.el.offsetTop <= scrollPos) {
+                        activeId = s.id;
+                    }
+                }
+                $$('#mobileNav .mobile-nav-item').forEach(item => {
+                    if (item.dataset.nav && item.dataset.nav !== 'profiles') {
+                        item.classList.toggle('active', item.dataset.nav === activeId);
+                    }
+                });
+            }
+
             // Navbar scroll listener
             window.addEventListener('scroll', () => {
                 $('#nav').classList.toggle('solid', window.scrollY > 40);
+                updateMobileNavScroll();
             });
 
             // Keyboard navigation
             window.addEventListener('keydown', e => {
-                if (e.key === 'Escape') closeAllOv();
+                if (e.key === 'Escape') {
+                    toggleMobileMenu(false);
+                    closeAllOv();
+                }
             });
 
             /* ================= INITIALIZATION ================= */
@@ -1351,6 +1419,30 @@
 
         })();
     </script>
+
+    <!-- ================= MOBILE BOTTOM NAVIGATION BAR ================= -->
+    <nav class="mobile-bottom-nav" id="mobileNav" aria-label="Điều hướng di động">
+        <a href="#top" class="mobile-nav-item active" data-nav="top">
+            <span data-ico="monitor" data-size="20"></span>
+            <span>Trang chủ</span>
+        </a>
+        <a href="#trending" class="mobile-nav-item" data-nav="trending">
+            <span data-ico="fire" data-size="20"></span>
+            <span>Thịnh hành</span>
+        </a>
+        <a href="#library" class="mobile-nav-item" data-nav="library">
+            <span data-ico="trailer" data-size="20"></span>
+            <span>Thư viện</span>
+        </a>
+        <a href="#plans" class="mobile-nav-item" data-nav="plans">
+            <span data-ico="shield" data-size="20"></span>
+            <span>Gói cước</span>
+        </a>
+        <button type="button" class="mobile-nav-item" data-act="open-profiles" data-nav="profiles">
+            <span data-ico="user" data-size="20"></span>
+            <span>Hồ sơ</span>
+        </button>
+    </nav>
 </body>
 
 </html>
