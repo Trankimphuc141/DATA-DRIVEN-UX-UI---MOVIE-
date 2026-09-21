@@ -83,8 +83,18 @@ ul {
     list-style: none;
 }
 
-input, select {
+input, select, textarea {
     font: inherit;
+    font-size: 16px; /* Prevents iPhone / iOS Safari auto-zoom on focus */
+}
+
+button, a, input, select, textarea, .card, .chip, .t10, .poster-wrap {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+button:active, .btn:active, .chip:active, .mobile-nav-item:active {
+    transform: scale(0.97);
 }
 
 :focus-visible {
@@ -222,8 +232,9 @@ input, select {
 /* ================= NAV ================= */
 .nav {
     position: fixed;
-    inset: 0 0 auto 0;
-    height: var(--nav);
+    top: 0; left: 0; right: 0;
+    height: calc(var(--nav) + env(safe-area-inset-top, 0px));
+    padding-top: env(safe-area-inset-top, 0px);
     z-index: 1000;
     background: linear-gradient(to bottom, rgba(5, 5, 7, 0.95), rgba(5, 5, 7, 0));
     transition: background 0.4s, backdrop-filter 0.4s;
@@ -2573,19 +2584,41 @@ body.lock-nav {
     .grid { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; }
     .mq .poster { width: 110px; }
 
-    /* Modal Mobile Bottom Sheet Overlay */
+    /* Search Overlay & Account Menu Mobile Optimization */
+    #m-search .search-wrap {
+        padding: 24px 16px calc(32px + env(safe-area-inset-bottom, 0px));
+        width: 100%;
+    }
+
+    .sb {
+        gap: 10px;
+        padding: 6px 0 12px;
+        margin-bottom: 20px;
+    }
+
+    .sb input {
+        font-size: 20px;
+    }
+
+    .acct-menu {
+        right: -8px;
+        max-width: calc(100vw - 32px);
+    }
+
+    /* Modal Mobile Bottom Sheet Overlay (iPhone & Android) */
     .overlay {
-        padding: 12px;
+        padding: 0;
         align-items: flex-end;
     }
 
     .modal {
         max-width: 100%;
-        max-height: 90vh;
-        max-height: 90dvh;
+        max-height: 92vh;
+        max-height: 92dvh;
         overflow-y: auto;
-        border-radius: 24px 24px 16px 16px;
-        padding: 24px 18px;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 24px 24px 0 0;
+        padding: 24px 18px calc(24px + env(safe-area-inset-bottom, 0px));
         width: 100%;
         margin-bottom: 0;
     }
@@ -2605,10 +2638,27 @@ body.lock-nav {
     .pm-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
 }
 
+@media (max-width: 768px) {
+    .c-ov {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 60%);
+        pointer-events: none;
+    }
+
+    .c-ov .c-act {
+        pointer-events: auto;
+    }
+
+    .card {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
 @media (max-width: 420px) {
     .grid { grid-template-columns: repeat(2, 1fr); gap: 12px 8px; }
-    .t10 .num { font-size: 96px; margin-right: -16px; }
-    .t10 .poster { width: 100px; }
+    .t10 .num { font-size: 92px; margin-right: -16px; }
+    .t10 .poster { width: 98px; }
     .hero-inner h1 { font-size: 26px; }
 }
 
